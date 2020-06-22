@@ -293,7 +293,7 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties External="false" Constant="false" Array="false">
-						<Formula><![CDATA[(ImageValence < 0) ? ((AffectDistressTendency + TraumaHistory + (1 – Control) + ImageDominance + ImageArousal) / 5) * ((NonTraumNMTonight + 2 * TraumNMTonight + NMIntensityLastWeek) / 4) * (1 – AdrenalineAntagonists) | 0]]></Formula>
+						<Formula><![CDATA[(ImageValence < 0) ? ((AffectDistressTendency + TraumaHistory + (1 – Control) + ImageDominance + ImageArousal) / 5) * ((NonTraumNMTonight + 2 * TraumNMTonight + NMIntensityLastWeek) / 4) * (1 – AdrenalineAntagonists) : 0]]></Formula>
 						<Value><![CDATA[0]]></Value>
 						<Color>-16777216</Color>
 						<Shadow>
@@ -317,7 +317,7 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties External="false" Constant="false" Array="false">
-						<Formula><![CDATA[(ImageValence < 0) ? ((ImageArousal * ImageDominance) + TraumaHistory + NMPressure) / 3 * AffectDistressTendency * NMIntensityLastWeek | 0]]></Formula>
+						<Formula><![CDATA[(ImageValence < 0) ? ((ImageArousal * ImageDominance) + TraumaHistory + NMPressure) / 3 * AffectDistressTendency * NMIntensityLastWeek | 0 + 0*NightmareSalience + 0*TreatmentRetraum]]></Formula>
 						<Value><![CDATA[0]]></Value>
 						<Color>-16744320</Color>
 						<Shadow>
@@ -341,7 +341,7 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties External="false" Constant="false" Array="false">
-						<Formula><![CDATA[(ImageValence < 0) ? (ImageDominance + ImageArousal) / 2 * (AffectDistressTendency + NMIntensityLastWeek + NMPressure) / 2 | 0]]></Formula>
+						<Formula><![CDATA[(ImageValence < 0) ? (ImageDominance + ImageArousal) / 2 * (AffectDistressTendency + NMIntensityLastWeek + NMPressure) / 2 | 0 + 0*TreatmentRetraum + 0*NightmareSalience]]></Formula>
 						<Value><![CDATA[0]]></Value>
 						<Color>-8388608</Color>
 					</Properties>
@@ -356,7 +356,7 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties External="false" Constant="false" Array="false">
-						<Formula><![CDATA[(ImageValence < 0) ? ((REMDeficitLastWeek + SleepDeficitLastWeek + Perseveration + NightmareDistress + NMPressure) / 5)  * (1 – AdrenalineAntagonists) | 0]]></Formula>
+						<Formula><![CDATA[(ImageValence < 0) ? ((REMDeficitLastWeek + SleepDeficitLastWeek + Perseveration + NightmareDistress + NMPressure) / 5)  * (1 – AdrenalineAntagonists) : 0 + 0*TreatmentRetraum]]></Formula>
 						<Value><![CDATA[0]]></Value>
 						<Color>-8355840</Color>
 					</Properties>
@@ -371,7 +371,7 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties External="false" Constant="false" Array="false">
-						<Formula><![CDATA[(ImageValence < 0) ? ((1 – TraumaHistory) + (1 - ImageDominance) / 2) * ControlCapacity | 1]]></Formula>
+						<Formula><![CDATA[(ImageValence < 0) ? ((1 – TraumaHistory) + (1 - ImageDominance) / 2) * ControlCapacity : 1]]></Formula>
 						<Value><![CDATA[0]]></Value>
 						<Color>-8355712</Color>
 						<Shadow>
@@ -551,7 +551,7 @@
 					<EquationStyle>classic</EquationStyle>
 					<Width>20</Width>
 					<Height>20</Height>
-						<InitialValue><![CDATA[1 – EndSleep]]></InitialValue>
+						<InitialValue><![CDATA[0]]></InitialValue>
 						<Color/>
 					</Properties>
 				</Variable>
@@ -564,7 +564,7 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties SourceId="1590272595002" TargetId="1590272707106" External="false" Constant="false" Array="false">
-						<Formula><![CDATA[(ImageValence < 0) AND (AffectLoad > FearExtinctionAttemptThreshold) AND (Fear < DandRFailureThreshold) ? 1 | 0]]></Formula>
+						<Formula><![CDATA[(ImageValence < 0) && (AffectLoad > FearExtinctionAttemptThreshold) && (Fear < DandRFailureThreshold) ? 1 : 0]]></Formula>
 						<Color>-256</Color>
 						<Shadow>
 							<Id>1590316084943</Id>
@@ -592,7 +592,7 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties SourceId="1590272707106" TargetId="1590272851310" External="false" Constant="false" Array="false">
-						<Formula><![CDATA[(AffectLoad < FearExtinctionCompletionThreshold) ? 1 | 0]]></Formula>
+						<Formula><![CDATA[(AffectLoad < FearExtinctionCompletionThreshold) ? 1 : 0]]></Formula>
 						<Color>-16711936</Color>
 						<Shadow>
 							<Id>1590316119123</Id>
@@ -648,7 +648,7 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties SourceId="1590273064457" TargetId="1590272595002" External="false" Constant="false" Array="false">
-						<Formula><![CDATA[(HourOfDay > NormalSleepHour) AND (SleepAvoidance < SleepPressure) ? 1 | 0]]></Formula>
+						<Formula><![CDATA[(HourOfDay > NormalSleepHour) && (SleepAvoidance < SleepPressure) ? 1 : 0]]></Formula>
 						<Color>-14774017</Color>
 						<Shadow>
 							<Id>1590316466437</Id>
@@ -676,7 +676,7 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties SourceId="1590272595002" TargetId="1590355707137" External="false" Constant="false" Array="false">
-						<Formula><![CDATA[(ImageValence < 0) AND (AffectLoad > FearExtinctionAttemptThreshold) AND (Fear >= DandRFailureThreshold) ? 1 | 0]]></Formula>
+						<Formula><![CDATA[(ImageValence < 0) && (AffectLoad > FearExtinctionAttemptThreshold) && (Fear >= DandRFailureThreshold) ? 1 : 0]]></Formula>
 						<Color>-65281</Color>
 						<Shadow>
 							<Id>1590316182063</Id>
@@ -732,7 +732,7 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties SourceId="1590272707106" TargetId="1590355707137" External="false" Constant="false" Array="false">
-						<Formula><![CDATA[(AffectLoad >= FearExtinctionCompletionThreshold) AND (Fear > FearExtinctionFailureThreshold) ? 1 | 0]]></Formula>
+						<Formula><![CDATA[(AffectLoad >= FearExtinctionCompletionThreshold) && (Fear > FearExtinctionFailureThreshold) ? 1 : 0]]></Formula>
 						<Color>-65536</Color>
 						<Shadow>
 							<Id>1590350936277</Id>
@@ -761,7 +761,7 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties SourceId="1590355707137" TargetId="1590273064457" External="false" Constant="false" Array="false">
-						<Formula><![CDATA[(HoursSleepTonight >= MaxHoursSleepPerNight) OR (Fear >= PostNightmareSleepThreshold) ? 1 | 0]]></Formula>
+						<Formula><![CDATA[(HoursSleepTonight >= MaxHoursSleepPerNight) || (Fear >= PostNightmareSleepThreshold) ? 1 : 0]]></Formula>
 						<Color>-14774017</Color>
 						<Shadow>
 							<Id>1590356917409</Id>
@@ -2946,33 +2946,33 @@ Treatment parameters are:
 //Define sleep variables
 //SleepTime (indicates whether person is sleeping or trying to sleep)
 //SleepEnd (indicates that person just woke (used for updating some variables and collections
-bool SleepTime = false;	//default
-if (WorkingMemoryImages = 0) {	//catch stock indicating daytime activity
+boolean SleepTime = false;	//default
+if (WorkingMemoryImages == 0) {	//catch stock indicating daytime activity
 	SleepTime = true;	
 }
-bool SleepEnd = false;
-if (EndSleep = 0) {				//catch flow indicating end of sleep
+boolean SleepEnd = false;
+if (EndSleep == 0) {				//catch flow indicating end of sleep
 	SleepEnd = true;
 }
 
 //Update tracking variables and collections with initial conditions - before any treatments are applied
 if (HourOfRun == 0) {
 	HoursSleepTonight = 0;
-	HoursSleepHistory.add(0);
+	HoursSleepHistory.add(0.0);
 	REMPeriodsTonight = 0;
-	REMPeriodsHistory.add(0);
+	REMPeriodsHistory.add(0.0);
 	SleepDeficitLastWeek = 0;
-	SleepDeficitHistory.add(0);
+	SleepDeficitHistory.add(0.0);
 	REMDeficitLastWeek = 0;
-	REMDeficitHistory.add(0);
+	REMDeficitHistory.add(0.0);
 	HoursSinceLastTreatment = 0;
-	TreatmentHistory.add(0);
+	TreatmentHistory.add(0.0);
 	NonTraumNMTonight = 0;
-	NonTraumNMHistory.add(0);
+	NonTraumNMHistory.add(0.0);
 	TraumNMTonight = 0;
-	TraumNMHistory.add(0);
+	TraumNMHistory.add(0.0);
 	NMIntensityLastWeek = 0;
-	NMIntensityHistory = 0;
+	NMIntensityHistory.add(0.0);
 }
 else {
 	//variables and collections that need to be updated hourly
@@ -2982,20 +2982,20 @@ else {
 	
 	//variables and collections that need to be updated once per day upon waking
 	HoursSleepTonight = 0;
-	HoursSleepHistory.add(0);
+	HoursSleepHistory.add(0.0);
 	REMPeriodsTonight = 0;
-	REMPeriodsHistory.add(0);
+	REMPeriodsHistory.add(0.0);
 	SleepDeficitLastWeek = 0;
-	SleepDeficitHistory.add(0);
+	SleepDeficitHistory.add(0.0);
 	REMDeficitLastWeek = 0;
-	REMDeficitHistory.add(0);
-	NonTraumNMHistory.add(0);
-	TraumNMHistory.add(0);
+	REMDeficitHistory.add(0.0);
+	NonTraumNMHistory.add(0.0);
+	TraumNMHistory.add(0.0);
 	NMIntensityLastWeek = 0;
-	NMIntensityHistory = 0;
+	NMIntensityHistory.add(0.0);
 	
 	//variables and collections that need to be updated right after treatment
-	TreatmentHistory.add(0);
+	TreatmentHistory.add(0.0);
 }
 
 //initialize model by infusing images of a specific type for one hour.
