@@ -317,7 +317,7 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties External="false" Constant="false" Array="false">
-						<Formula><![CDATA[(ImageValence < 0) ? ((ImageArousal * ImageDominance) + TraumaHistory + NMPressure) / 3 * AffectDistressTendency * NMIntensityLastWeek | 0 + 0*NightmareSalience + 0*TreatmentRetraum]]></Formula>
+						<Formula><![CDATA[(ImageValence < 0) ? ((ImageArousal * ImageDominance) + TraumaHistory + NightmareSalience) / 3 * AffectDistressTendency * NMIntensityLastWeek | 0 + 0*NightmareSalience + 0*TreatmentRetraum]]></Formula>
 						<Value><![CDATA[0]]></Value>
 						<Color>-16744320</Color>
 						<Shadow>
@@ -341,7 +341,7 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties External="false" Constant="false" Array="false">
-						<Formula><![CDATA[(ImageValence < 0) ? (ImageDominance + ImageArousal) / 2 * (AffectDistressTendency + NMIntensityLastWeek + NMPressure) / 2 | 0 + 0*TreatmentRetraum + 0*NightmareSalience]]></Formula>
+						<Formula><![CDATA[(ImageValence < 0) ? (ImageDominance + ImageArousal) / 2 * (AffectDistressTendency + NMIntensityLastWeek + NightmareSalience) / 2 | 0 + 0*TreatmentRetraum + 0*NightmareSalience]]></Formula>
 						<Value><![CDATA[0]]></Value>
 						<Color>-8388608</Color>
 					</Properties>
@@ -356,7 +356,7 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties External="false" Constant="false" Array="false">
-						<Formula><![CDATA[(ImageValence < 0) ? ((REMDeficitLastWeek + SleepDeficitLastWeek + Perseveration + NightmareDistress + NMPressure) / 5)  * (1 – AdrenalineAntagonists) : 0 + 0*TreatmentRetraum]]></Formula>
+						<Formula><![CDATA[(ImageValence < 0) ? ((REMDeficitLastWeek + SleepDeficitLastWeek + Perseveration + NightmareDistress + NightmareSalience) / 5)  * (1 – AdrenalineAntagonists) : 0 + 0*TreatmentRetraum]]></Formula>
 						<Value><![CDATA[0]]></Value>
 						<Color>-8355840</Color>
 					</Properties>
@@ -2740,6 +2740,21 @@
 					<Name><![CDATA[NightmareSalience - NightmareDistress]]></Name>
 					<X>230</X><Y>960</Y>
 					<Label><X>40</X><Y>-50</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1591192549159" TargetId="1590353813015" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>400</X><Y>-270</Y></Direction>
+					<Id>1593016598448</Id>
+					<Name><![CDATA[NightmareSalience - NightmareEffects]]></Name>
+					<X>230</X><Y>960</Y>
+					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
