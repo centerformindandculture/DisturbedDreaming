@@ -293,7 +293,7 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties External="false" Constant="false" Array="false">
-						<Formula><![CDATA[(ImageValence < 0) ? ((AffectDistressTendency + TraumaHistory + (1 – Control) + ImageDominance + ImageArousal) / 5) * ((NonTraumNMTonight + 2 * TraumNMTonight + NMIntensityLastWeek) / 4) * (1 – AdrenalineAntagonists) : 0]]></Formula>
+						<Formula><![CDATA[(ImageValence<0.0)?(((AffectDistressTendency+TraumaHistory+(1.0-Control)+ImageDominance+ImageArousal)/5.0)*((NonTraumNMTonight+2.0*TraumNMTonight+NMIntensityLastWeek)/4.0)*(1.0-AdrenalineAntagonists)):0.0]]></Formula>
 						<Value><![CDATA[0]]></Value>
 						<Color>-16777216</Color>
 						<Shadow>
@@ -317,7 +317,7 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties External="false" Constant="false" Array="false">
-						<Formula><![CDATA[(ImageValence < 0) ? ((ImageArousal * ImageDominance) + TraumaHistory + NightmareSalience) / 3 * AffectDistressTendency * NMIntensityLastWeek | 0 + 0*NightmareSalience + 0*TreatmentRetraum]]></Formula>
+						<Formula><![CDATA[(ImageValence < 0) ? ((ImageArousal * ImageDominance) + TraumaHistory + NightmareSalience) / 3 * AffectDistressTendency * NMIntensityLastWeek : 0 + 0*NightmareSalience + 0*TreatmentRetraum]]></Formula>
 						<Value><![CDATA[0]]></Value>
 						<Color>-16744320</Color>
 						<Shadow>
@@ -341,7 +341,7 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties External="false" Constant="false" Array="false">
-						<Formula><![CDATA[(ImageValence < 0) ? (ImageDominance + ImageArousal) / 2 * (AffectDistressTendency + NMIntensityLastWeek + NightmareSalience) / 2 | 0 + 0*TreatmentRetraum + 0*NightmareSalience]]></Formula>
+						<Formula><![CDATA[(ImageValence < 0) ? (ImageDominance + ImageArousal) / 2 * (AffectDistressTendency + NMIntensityLastWeek + NightmareSalience) / 2 : 0 + 0*TreatmentRetraum + 0*NightmareSalience]]></Formula>
 						<Value><![CDATA[0]]></Value>
 						<Color>-8388608</Color>
 					</Properties>
@@ -356,7 +356,10 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties External="false" Constant="false" Array="false">
-						<Formula><![CDATA[(ImageValence < 0) ? ((REMDeficitLastWeek + SleepDeficitLastWeek + Perseveration + NightmareDistress + NightmareSalience) / 5)  * (1 – AdrenalineAntagonists) : 0 + 0*TreatmentRetraum]]></Formula>
+						<Formula><![CDATA[(ImageValence < 0) ? 
+	((REMDeficitLastWeek + SleepDeficitLastWeek + Perseveration + NightmareDistress + NightmareSalience) / 5)
+	 * (1 - AdrenalineAntagonists)
+	 : (0 + 0*TreatmentRetraum)]]></Formula>
 						<Value><![CDATA[0]]></Value>
 						<Color>-8355840</Color>
 					</Properties>
@@ -371,7 +374,7 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties External="false" Constant="false" Array="false">
-						<Formula><![CDATA[(ImageValence < 0) ? ((1 – TraumaHistory) + (1 - ImageDominance) / 2) * ControlCapacity : 1]]></Formula>
+						<Formula><![CDATA[(ImageValence < 0.0) ? ((1.0 - TraumaHistory) + (1.0 - ImageDominance) / 2.0) * ControlCapacity : 1.0]]></Formula>
 						<Value><![CDATA[0]]></Value>
 						<Color>-8355712</Color>
 						<Shadow>
@@ -395,7 +398,7 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties External="false" Constant="false" Array="false">
-						<Formula><![CDATA[WorkingMemoryImages > 0 ? ((ImageDominance * ImageArousal) + TraumaHistory)/2 * AffectDistressTendency | 0]]></Formula>
+						<Formula><![CDATA[WorkingMemoryImages > 0 ? ((ImageDominance * ImageArousal) + TraumaHistory)/2 * AffectDistressTendency : 0]]></Formula>
 						<Value><![CDATA[0]]></Value>
 						<Color>-14774017</Color>
 						<Shadow>
@@ -488,7 +491,7 @@
 					<EquationStyle>classic</EquationStyle>
 					<Width>20</Width>
 					<Height>20</Height>
-						<InitialValue><![CDATA[0]]></InitialValue>
+						<InitialValue><![CDATA[1]]></InitialValue>
 						<Color/>
 					</Properties>
 				</Variable>
@@ -912,6 +915,9 @@
 						<Type><![CDATA[double]]></Type>
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[-0.5]]></Code>
+						</DefaultValue>
 						<ParameterEditor>
 							<Id>1590347341806</Id>
 							<EditorContolType>TEXT_BOX</EditorContolType>
@@ -1035,12 +1041,12 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[boolean]]></Type>
+						<Type><![CDATA[double]]></Type>
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<ParameterEditor>
 							<Id>1590445337738</Id>
-							<EditorContolType>CHECK_BOX</EditorContolType>
+							<EditorContolType>TEXT_BOX</EditorContolType>
 							<MinSliderValue><![CDATA[0]]></MinSliderValue>
 							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
 							<DelimeterType>NO_DELIMETER</DelimeterType>
@@ -1667,66 +1673,6 @@
 					<LineWidth>1</LineWidth>
 					<Delay>false</Delay>
 				</Link>
-				<Link SourceId="1590347341808" TargetId="1590273961175" Polarity="null">
-					<Height>0.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>360</Y></Direction>
-					<Id>1590678414380</Id>
-					<Name><![CDATA[ImageValence - Fear]]></Name>
-					<X>230</X><Y>480</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1590347364670" TargetId="1590273961175" Polarity="null">
-					<Height>0.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>320</Y></Direction>
-					<Id>1590678585908</Id>
-					<Name><![CDATA[ImageArousal - Fear]]></Name>
-					<X>230</X><Y>520</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1590347366159" TargetId="1590273961175" Polarity="null">
-					<Height>0.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>340</Y></Direction>
-					<Id>1590678763942</Id>
-					<Name><![CDATA[ImageDominance - Fear]]></Name>
-					<X>230</X><Y>500</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1590347364670" TargetId="1590273961175" Polarity="null">
-					<Height>0.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>320</Y></Direction>
-					<Id>1590678771167</Id>
-					<Name><![CDATA[ImageArousal - Fear]]></Name>
-					<X>230</X><Y>520</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
 				<Link SourceId="1591106657472" TargetId="1590350936277" Polarity="null">
 					<Height>-38.474</Height>
 					<PolarityPosition>0.95</PolarityPosition>
@@ -1739,81 +1685,6 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<Color>-65536</Color>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1590347366159" TargetId="1590678853601" Polarity="null">
-					<Height>0.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>370</Y></Direction>
-					<Id>1590678890551</Id>
-					<Name><![CDATA[ImageDominance - Control]]></Name>
-					<X>230</X><Y>500</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1590272662305" TargetId="1590273961175" Polarity="null">
-					<Height>0.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>470</Y></Direction>
-					<Id>1590678912908</Id>
-					<Name><![CDATA[AffectDistressTendency - Fear]]></Name>
-					<X>230</X><Y>370</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1590274024200" TargetId="1590273961175" Polarity="null">
-					<Height>0.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>450</Y></Direction>
-					<Id>1590678923731</Id>
-					<Name><![CDATA[TraumaHistory - Fear]]></Name>
-					<X>230</X><Y>390</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1590274024200" TargetId="1590678853601" Polarity="null">
-					<Height>-20.978</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>480</Y></Direction>
-					<Id>1590678929780</Id>
-					<Name><![CDATA[TraumaHistory - Control]]></Name>
-					<X>230</X><Y>390</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1590445746399" TargetId="1590678853601" Polarity="null">
-					<Height>0.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>-50</Y></Direction>
-					<Id>1590678969846</Id>
-					<Name><![CDATA[ControlCapacity - Control]]></Name>
-					<X>230</X><Y>920</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
 					<LineWidth>1</LineWidth>
 					<Delay>false</Delay>
 				</Link>
@@ -1839,36 +1710,6 @@
 					<Id>1590679061012</Id>
 					<Name><![CDATA[ImageDominance - DASSAnxiety]]></Name>
 					<X>230</X><Y>500</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1590445337740" TargetId="1590353813015" Polarity="null">
-					<Height>0.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>-160</Y></Direction>
-					<Id>1590679895331</Id>
-					<Name><![CDATA[AdrenalineAntagonists - NightmareEffects]]></Name>
-					<X>230</X><Y>850</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1590681120248" TargetId="1590353813015" Polarity="null">
-					<Height>0.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>-250</Y></Direction>
-					<Id>1590681277315</Id>
-					<Name><![CDATA[TreatmentRetraum - NightmareEffects]]></Name>
-					<X>230</X><Y>940</Y>
 					<Label><X>40</X><Y>-50</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1904,21 +1745,6 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<Color>-65536</Color>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1590445337740" TargetId="1590273961175" Polarity="null">
-					<Height>0.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>-10</Y></Direction>
-					<Id>1590859387992</Id>
-					<Name><![CDATA[AdrenalineAntagonists - Fear]]></Name>
-					<X>230</X><Y>850</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
 					<LineWidth>1</LineWidth>
 					<Delay>false</Delay>
 				</Link>
@@ -1979,21 +1805,6 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<Color>-16711681</Color>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1590347341808" TargetId="1590353813015" Polarity="null">
-					<Height>0.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>210</Y></Direction>
-					<Id>1590862342823</Id>
-					<Name><![CDATA[ImageValence - NightmareEffects]]></Name>
-					<X>230</X><Y>480</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
 					<LineWidth>1</LineWidth>
 					<Delay>false</Delay>
 				</Link>
@@ -2402,21 +2213,6 @@
 					<LineWidth>1</LineWidth>
 					<Delay>false</Delay>
 				</Link>
-				<Link SourceId="1591106652087" TargetId="1591106657472" Polarity="null">
-					<Height>-16.527</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>-70</X><Y>0</Y></Direction>
-					<Id>1591176531375</Id>
-					<Name><![CDATA[<Control> - <Fear>]]></Name>
-					<X>440</X><Y>380</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
 				<Link SourceId="1590274024200" TargetId="1591111183884" Polarity="null">
 					<Height>20.0</Height>
 					<PolarityPosition>0.95</PolarityPosition>
@@ -2522,66 +2318,6 @@
 					<LineWidth>1</LineWidth>
 					<Delay>false</Delay>
 				</Link>
-				<Link SourceId="1591136184734" TargetId="1590273961175" Polarity="null">
-					<Height>20.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>-260</Y></Direction>
-					<Id>1591186293212</Id>
-					<Name><![CDATA[NonTraumNMTonight - Fear]]></Name>
-					<X>230</X><Y>1100</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1591136236746" TargetId="1590273961175" Polarity="null">
-					<Height>20.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>-280</Y></Direction>
-					<Id>1591186303010</Id>
-					<Name><![CDATA[TraumNMTonight - Fear]]></Name>
-					<X>230</X><Y>1120</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1591177899344" TargetId="1590273961175" Polarity="null">
-					<Height>20.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>-300</Y></Direction>
-					<Id>1591186317005</Id>
-					<Name><![CDATA[NMIntensityLastWeek - Fear]]></Name>
-					<X>230</X><Y>1140</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1590347341808" TargetId="1590678853601" Polarity="null">
-					<Height>0.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>390</Y></Direction>
-					<Id>1591186827296</Id>
-					<Name><![CDATA[ImageValence - Control]]></Name>
-					<X>230</X><Y>480</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
 				<Link SourceId="1590274024200" TargetId="1590353786586" Polarity="null">
 					<Height>20.0</Height>
 					<PolarityPosition>0.95</PolarityPosition>
@@ -2619,66 +2355,6 @@
 					<Id>1591187305787</Id>
 					<Name><![CDATA[NMIntensityLastWeek - NightmareDistress]]></Name>
 					<X>230</X><Y>1140</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1591189227091" TargetId="1590353813015" Polarity="null">
-					<Height>-28.965</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>260</X><Y>270</Y></Direction>
-					<Id>1591189259083</Id>
-					<Name><![CDATA[<Perseveration> - NightmareEffects]]></Name>
-					<X>370</X><Y>420</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color>-65536</Color>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1591189291070" TargetId="1590353813015" Polarity="null">
-					<Height>-31.914</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>260</X><Y>250</Y></Direction>
-					<Id>1591189302410</Id>
-					<Name><![CDATA[<NightmareDistress> - NightmareEffects]]></Name>
-					<X>370</X><Y>440</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color>-65536</Color>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1591095598434" TargetId="1590353813015" Polarity="null">
-					<Height>20.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>-350</Y></Direction>
-					<Id>1591189336902</Id>
-					<Name><![CDATA[SleepDeficitLastWeek - NightmareEffects]]></Name>
-					<X>230</X><Y>1040</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1591095612372" TargetId="1590353813015" Polarity="null">
-					<Height>20.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>-370</Y></Direction>
-					<Id>1591189349838</Id>
-					<Name><![CDATA[REMDeficitLastWeek - NightmareEffects]]></Name>
-					<X>230</X><Y>1060</Y>
 					<Label><X>40</X><Y>-50</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2747,13 +2423,388 @@
 					<LineWidth>1</LineWidth>
 					<Delay>false</Delay>
 				</Link>
+				<Link SourceId="1590347341808" TargetId="1590678853601" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>400</X><Y>390</Y></Direction>
+					<Id>1593026244823</Id>
+					<Name><![CDATA[ImageValence - Control]]></Name>
+					<X>230</X><Y>480</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1590347341808" TargetId="1590678853601" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>400</X><Y>390</Y></Direction>
+					<Id>1593026244823</Id>
+					<Name><![CDATA[ImageValence - Control]]></Name>
+					<X>230</X><Y>480</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1590347341808" TargetId="1590678853601" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>400</X><Y>390</Y></Direction>
+					<Id>1593026244823</Id>
+					<Name><![CDATA[ImageValence - Control]]></Name>
+					<X>230</X><Y>480</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1590274024200" TargetId="1591106652087" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>210</X><Y>-10</Y></Direction>
+					<Id>1593026645708</Id>
+					<Name><![CDATA[TraumaHistory - <Control>]]></Name>
+					<X>230</X><Y>390</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1590445746399" TargetId="1590678853601" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>400</X><Y>-50</Y></Direction>
+					<Id>1593026700584</Id>
+					<Name><![CDATA[ControlCapacity - Control]]></Name>
+					<X>230</X><Y>920</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1590347366159" TargetId="1591106652087" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>210</X><Y>-120</Y></Direction>
+					<Id>1593026703740</Id>
+					<Name><![CDATA[ImageDominance - <Control>]]></Name>
+					<X>230</X><Y>500</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1590347341808" TargetId="1591106657472" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>140</X><Y>-100</Y></Direction>
+					<Id>1593027052359</Id>
+					<Name><![CDATA[ImageValence - <Fear>]]></Name>
+					<X>230</X><Y>480</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1590445337740" TargetId="1590273961175" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>400</X><Y>-10</Y></Direction>
+					<Id>1593027716579</Id>
+					<Name><![CDATA[AdrenalineAntagonists - Fear]]></Name>
+					<X>230</X><Y>850</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1591177899344" TargetId="1590273961175" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>400</X><Y>-300</Y></Direction>
+					<Id>1593027718184</Id>
+					<Name><![CDATA[NMIntensityLastWeek - Fear]]></Name>
+					<X>230</X><Y>1140</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1591136184734" TargetId="1590273961175" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>400</X><Y>-260</Y></Direction>
+					<Id>1593027719527</Id>
+					<Name><![CDATA[NonTraumNMTonight - Fear]]></Name>
+					<X>230</X><Y>1100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1590347366159" TargetId="1591106657472" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>140</X><Y>-120</Y></Direction>
+					<Id>1593027720765</Id>
+					<Name><![CDATA[ImageDominance - <Fear>]]></Name>
+					<X>230</X><Y>500</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1590272662305" TargetId="1591106657472" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>140</X><Y>10</Y></Direction>
+					<Id>1593027722732</Id>
+					<Name><![CDATA[AffectDistressTendency - <Fear>]]></Name>
+					<X>230</X><Y>370</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1591136236746" TargetId="1590273961175" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>400</X><Y>-280</Y></Direction>
+					<Id>1593027724009</Id>
+					<Name><![CDATA[TraumNMTonight - Fear]]></Name>
+					<X>230</X><Y>1120</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1590678853601" TargetId="1590273961175" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>0</X><Y>-30</Y></Direction>
+					<Id>1593027725394</Id>
+					<Name><![CDATA[Control - Fear]]></Name>
+					<X>630</X><Y>870</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1590347364670" TargetId="1591106657472" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>140</X><Y>-140</Y></Direction>
+					<Id>1593027726691</Id>
+					<Name><![CDATA[ImageArousal - <Fear>]]></Name>
+					<X>230</X><Y>520</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1590274024200" TargetId="1591106657472" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>140</X><Y>-10</Y></Direction>
+					<Id>1593027728013</Id>
+					<Name><![CDATA[TraumaHistory - <Fear>]]></Name>
+					<X>230</X><Y>390</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1590347341808" TargetId="1591106657472" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>140</X><Y>-100</Y></Direction>
+					<Id>1593028046132</Id>
+					<Name><![CDATA[ImageValence - <Fear>]]></Name>
+					<X>230</X><Y>480</Y>
+					<Label><X>40</X><Y>-50</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1591095612372" TargetId="1590353813015" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>400</X><Y>-370</Y></Direction>
+					<Id>1593030133155</Id>
+					<Name><![CDATA[REMDeficitLastWeek - NightmareEffects]]></Name>
+					<X>230</X><Y>1060</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1590445337740" TargetId="1590353813015" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>400</X><Y>-160</Y></Direction>
+					<Id>1593030134800</Id>
+					<Name><![CDATA[AdrenalineAntagonists - NightmareEffects]]></Name>
+					<X>230</X><Y>850</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1590681120248" TargetId="1590353813015" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>400</X><Y>-250</Y></Direction>
+					<Id>1593030136002</Id>
+					<Name><![CDATA[TreatmentRetraum - NightmareEffects]]></Name>
+					<X>230</X><Y>940</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1590681120248" TargetId="1590353813015" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>400</X><Y>-250</Y></Direction>
+					<Id>1593030137275</Id>
+					<Name><![CDATA[TreatmentRetraum - NightmareEffects]]></Name>
+					<X>230</X><Y>940</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1590353786586" TargetId="1590353813015" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>0</X><Y>30</Y></Direction>
+					<Id>1593030139338</Id>
+					<Name><![CDATA[NightmareDistress - NightmareEffects]]></Name>
+					<X>630</X><Y>660</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1591095598434" TargetId="1590353813015" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>400</X><Y>-350</Y></Direction>
+					<Id>1593030140545</Id>
+					<Name><![CDATA[SleepDeficitLastWeek - NightmareEffects]]></Name>
+					<X>230</X><Y>1040</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
 				<Link SourceId="1591192549159" TargetId="1590353813015" Polarity="null">
 					<Height>20.0</Height>
 					<PolarityPosition>0.95</PolarityPosition>
 					<Direction><X>400</X><Y>-270</Y></Direction>
-					<Id>1593016598448</Id>
+					<Id>1593030142225</Id>
 					<Name><![CDATA[NightmareSalience - NightmareEffects]]></Name>
 					<X>230</X><Y>960</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1590347341808" TargetId="1590353813015" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>400</X><Y>210</Y></Direction>
+					<Id>1593030143537</Id>
+					<Name><![CDATA[ImageValence - NightmareEffects]]></Name>
+					<X>230</X><Y>480</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1591111183884" TargetId="1590353813015" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>0</X><Y>-120</Y></Direction>
+					<Id>1593030144920</Id>
+					<Name><![CDATA[<Perseveration> - NightmareEffects]]></Name>
+					<X>630</X><Y>810</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4235,78 +4286,147 @@ provides another important dimension to the data.]]></Text>
 			<Parameters>			
 				<Parameter>
 					<ParameterName><![CDATA[AffectDistressTendency]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[1]]></Code>
+					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[TraumaHistory]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[1]]></Code>
+					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[FearExtinctionFailureThreshold]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[1]]></Code>
+					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[ImageValence]]></ParameterName>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[ImageArousal]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[1]]></Code>
+					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[ImageDominance]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[1]]></Code>
+					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[InitialAffectLoad]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[1]]></Code>
+					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[TreatmentDegreeOfControl]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[1]]></Code>
+					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[TreatmentImagesSimilarToNM]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[1]]></Code>
+					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[AdrenalineAntagonists]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[TreatmentFrequency]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[1]]></Code>
+					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[TreatmentType]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[1]]></Code>
+					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[FearExtinctionCompletionThreshold]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[1]]></Code>
+					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[ImageStabilizationCapacity]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[1]]></Code>
+					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[FearExtinctionAttemptThreshold]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[1]]></Code>
+					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[DandRFailureThreshold]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[1]]></Code>
+					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[MaxREMCyclesPerNight]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[1]]></Code>
+					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[MaxHoursSleepPerNight]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[1]]></Code>
+					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[IdealHoursSleepPerNight]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[1]]></Code>
+					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[FEAffectLoadDecrement]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[1]]></Code>
+					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[PostNightmareSleepThreshold]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[1]]></Code>
+					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[NormalSleepHour]]></ParameterName>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[NTNMAffectLoadIncrement]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[1]]></Code>
+					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[TNMAffectLoadIncrement]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[1]]></Code>
+					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[Lucidity]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[1]]></Code>
+					</ParameterValue>
 				</Parameter>
 			</Parameters>			
 			<PresentationProperties>
