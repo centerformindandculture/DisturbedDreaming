@@ -4,7 +4,7 @@
 	         AnyLogic Project File 
 *************************************************	         
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.5.2.202001241833" AlpVersion="8.5.1">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.7.3.202103181427" AlpVersion="8.7.1">
 <Model>
 	<Id>1590253624661</Id>
 	<Name><![CDATA[Disturbed Dreaming Model]]></Name>
@@ -229,7 +229,7 @@ CheckInputs();]]></StartupCode>
 				</Variable>
 				<Variable Class="PlainVariable">
 					<Id>1591136184734</Id>
-					<Name><![CDATA[NonTraumNMTonight]]></Name>
+					<Name><![CDATA[IdiopathicNMTonight]]></Name>
 					<X>230</X><Y>1100</Y>
 					<Label><X>-135</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -302,7 +302,7 @@ CheckInputs();]]></StartupCode>
 				<Variable Class="PlainVariable">
 					<Id>1594319601466</Id>
 					<Name><![CDATA[RunHourMostRecentlyAttemptedSleep]]></Name>
-					<X>240</X><Y>1250</Y>
+					<X>30</X><Y>1750</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -316,10 +316,10 @@ CheckInputs();]]></StartupCode>
 					<Name><![CDATA[MostRecentRegimen]]></Name>
 					<Description><![CDATA[0 = Immediate Depotentiate
 1 = Fear Extinction Loop
-2 = NonTraum Nightmare
+2 = Idiopathic Nightmare
 3 = Traum Nightmare]]></Description>
-					<X>230</X><Y>1280</Y>
-					<Label><X>10</X><Y>0</Y></Label>
+					<X>230</X><Y>1200</Y>
+					<Label><X>-175</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
@@ -338,7 +338,7 @@ CheckInputs();]]></StartupCode>
 					<Properties External="false" Constant="false" Array="false">
 						<Formula><![CDATA[(ImageValence<0.0)
 	? ((
-		(AffectDistressTendency+TraumaHistory+(1.0-Control)+ImageDominance+ImageArousal + NonTraumNMTonight+2.0*TraumNMTonight+NMIntensityLastWeek)/9.0)
+		(AffectDistressTendency+TraumaHistory+(1.0-Control)+ImageDominance+ImageArousal + IdiopathicNMTonight+2.0*TraumNMTonight+NMIntensityLastWeek)/9.0)
 			*(1.0-AdrenalineAntagonists))
 		:0.0]]></Formula>
 						<Value><![CDATA[0]]></Value>
@@ -441,8 +441,8 @@ CheckInputs();]]></StartupCode>
 				<Variable Class="AuxVariable">
 					<Id>1591103848796</Id>
 					<Name><![CDATA[SleepAvoidance]]></Name>
-					<X>1000</X><Y>640</Y>
-					<Label><X>-40</X><Y>-20</Y></Label>
+					<X>630</X><Y>750</Y>
+					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
@@ -450,15 +450,6 @@ CheckInputs();]]></StartupCode>
 						<Formula><![CDATA[((TraumaHistory + AffectDistressTendency) / 2) * (NMIntensityLastWeek + Perseveration) / 2]]></Formula>
 						<Value><![CDATA[0]]></Value>
 						<Color>-14774017</Color>
-						<Shadow>
-							<Id>1591107586905</Id>
-							<Name><![CDATA[<SleepAvoidance>]]></Name>
-							<X>630</X><Y>750</Y>
-							<Label><X>5</X><Y>0</Y></Label>
-							<PublicFlag>false</PublicFlag>
-							<PresentationFlag>true</PresentationFlag>
-							<ShowLabel>true</ShowLabel>
-						</Shadow>
 						<Shadow>
 							<Id>1591187080286</Id>
 							<Name><![CDATA[<SleepAvoidance>]]></Name>
@@ -474,8 +465,8 @@ CheckInputs();]]></StartupCode>
 				<Variable Class="AuxVariable">
 					<Id>1591109972842</Id>
 					<Name><![CDATA[SleepPressure]]></Name>
-					<X>1000</X><Y>590</Y>
-					<Label><X>-45</X><Y>-20</Y></Label>
+					<X>630</X><Y>780</Y>
+					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
@@ -483,15 +474,6 @@ CheckInputs();]]></StartupCode>
 						<Formula><![CDATA[((SleepDeficitLastWeek / 7) + (REMDeficitLastWeek /  7)) / 2]]></Formula>
 						<Value><![CDATA[0]]></Value>
 						<Color>-14774017</Color>
-						<Shadow>
-							<Id>1591110021172</Id>
-							<Name><![CDATA[<SleepPressure>]]></Name>
-							<X>630</X><Y>780</Y>
-							<Label><X>5</X><Y>0</Y></Label>
-							<PublicFlag>false</PublicFlag>
-							<PresentationFlag>true</PresentationFlag>
-							<ShowLabel>true</ShowLabel>
-						</Shadow>
 					</Properties>
 
 				</Variable>
@@ -666,6 +648,7 @@ CheckInputs();]]></StartupCode>
 				<Variable Class="Parameter">
 					<Id>1590349313043</Id>
 					<Name><![CDATA[TreatmentDegreeOfControl]]></Name>
+					<Description><![CDATA[This is not used yet.]]></Description>
 					<X>230</X><Y>810</Y>
 					<Label><X>-165</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -687,6 +670,7 @@ CheckInputs();]]></StartupCode>
 				<Variable Class="Parameter">
 					<Id>1590349313049</Id>
 					<Name><![CDATA[TreatmentImagesSimilarToNM]]></Name>
+					<Description><![CDATA[This is not used yet.]]></Description>
 					<X>230</X><Y>830</Y>
 					<Label><X>-180</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -732,6 +716,7 @@ CheckInputs();]]></StartupCode>
 				<Variable Class="Parameter">
 					<Id>1590445936951</Id>
 					<Name><![CDATA[TreatmentFrequency]]></Name>
+					<Description><![CDATA[This is not used yet.]]></Description>
 					<X>230</X><Y>870</Y>
 					<Label><X>-130</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -753,6 +738,7 @@ CheckInputs();]]></StartupCode>
 				<Variable Class="Parameter">
 					<Id>1590445957713</Id>
 					<Name><![CDATA[TreatmentType]]></Name>
+					<Description><![CDATA[This is not used yet.]]></Description>
 					<X>230</X><Y>890</Y>
 					<Label><X>-100</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -948,6 +934,9 @@ CheckInputs();]]></StartupCode>
 						<Type><![CDATA[double]]></Type>
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0.4]]></Code>
+						</DefaultValue>
 						<ParameterEditor>
 							<Id>1591098449519</Id>
 							<EditorContolType>TEXT_BOX</EditorContolType>
@@ -983,7 +972,7 @@ CheckInputs();]]></StartupCode>
 				</Variable>
 				<Variable Class="Parameter">
 					<Id>1591136318404</Id>
-					<Name><![CDATA[NTNMAffectLoadIncrement]]></Name>
+					<Name><![CDATA[IdiopathicNMAffectLoadIncrement]]></Name>
 					<X>230</X><Y>630</Y>
 					<Label><X>-170</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -1056,8 +1045,8 @@ CheckInputs();]]></StartupCode>
 				<Variable Class="Parameter">
 					<Id>1594141524134</Id>
 					<Name><![CDATA[TimeInState]]></Name>
-					<X>230</X><Y>1210</Y>
-					<Label><X>-110</X><Y>0</Y></Label>
+					<X>390</X><Y>1590</Y>
+					<Label><X>15</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
@@ -1080,7 +1069,7 @@ CheckInputs();]]></StartupCode>
 				<Variable Class="Parameter">
 					<Id>1597080388010</Id>
 					<Name><![CDATA[ExperimentId]]></Name>
-					<X>260</X><Y>1420</Y>
+					<X>390</X><Y>1570</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1145,7 +1134,7 @@ CheckInputs();]]></StartupCode>
 				</Variable>
 				<Variable Class="CollectionVariable">
 					<Id>1591180876285</Id>
-					<Name><![CDATA[NonTraumNMHistory]]></Name>
+					<Name><![CDATA[IdiopathicNMHistory]]></Name>
 					<X>630</X><Y>1100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -1296,8 +1285,8 @@ CheckInputs();]]></StartupCode>
 				<Variable Class="CollectionVariable">
 					<Id>1597079424106</Id>
 					<Name><![CDATA[MostRecentRegimenHistory]]></Name>
-					<X>230</X><Y>1310</Y>
-					<Label><X>10</X><Y>0</Y></Label>
+					<X>630</X><Y>1190</Y>
+					<Label><X>10</X><Y>5</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
@@ -1311,7 +1300,7 @@ CheckInputs();]]></StartupCode>
 				<Variable Class="CollectionVariable">
 					<Id>1597080464317</Id>
 					<Name><![CDATA[NightmareDistressHistory]]></Name>
-					<X>260</X><Y>1450</Y>
+					<X>630</X><Y>1220</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1326,7 +1315,7 @@ CheckInputs();]]></StartupCode>
 				<Variable Class="CollectionVariable">
 					<Id>1597080544217</Id>
 					<Name><![CDATA[NightmareEffectsHistory]]></Name>
-					<X>260</X><Y>1480</Y>
+					<X>630</X><Y>1240</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1341,7 +1330,7 @@ CheckInputs();]]></StartupCode>
 				<Variable Class="CollectionVariable">
 					<Id>1597080557349</Id>
 					<Name><![CDATA[DASSAnxietyHistory]]></Name>
-					<X>260</X><Y>1500</Y>
+					<X>630</X><Y>1270</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1355,36 +1344,6 @@ CheckInputs();]]></StartupCode>
 				</Variable>
 			</Variables>
 			<Dependences>
-				<Link SourceId="1591106657472" Polarity="null">
-					<Height>-41.455</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>260</X><Y>100</Y></Direction>
-					<Id>1590354215249</Id>
-					<Name><![CDATA[<Fear> - ]]></Name>
-					<X>370</X><Y>380</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color>-65536</Color>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1590274267533" Polarity="null">
-					<Height>0.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>-290</Y></Direction>
-					<Id>1590354283541</Id>
-					<Name><![CDATA[FearExtinctionFailureThreshold - ]]></Name>
-					<X>230</X><Y>740</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
 				<Link SourceId="1590272662305" TargetId="1590353786586" Polarity="null">
 					<Height>0.0</Height>
 					<PolarityPosition>0.95</PolarityPosition>
@@ -1392,50 +1351,6 @@ CheckInputs();]]></StartupCode>
 					<Id>1590356989254</Id>
 					<Name><![CDATA[AffectDistressTendency - NightmareDistress]]></Name>
 					<X>230</X><Y>370</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1591051655412" Polarity="null">
-					<Height>0.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>-30</Y></Direction>
-					<Id>1590357047313</Id>
-					<Name><![CDATA[MaxHoursSleepPerNight - ]]></Name>
-					<X>230</X><Y>570</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1591097038621" Polarity="null">
-					<Height>0.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>-500</Y></Direction>
-					<Id>1590357128194</Id>
-					<Name><![CDATA[AffectLoad - ]]></Name>
-					<X>230</X><Y>980</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link Polarity="null">
-					<Height>0.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>-130</Y></Direction>
-					<Id>1590446970140</Id>
-					<X>230</X><Y>760</Y>
 					<Label><X>40</X><Y>-50</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1456,36 +1371,6 @@ CheckInputs();]]></StartupCode>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1590347341808" Polarity="null">
-					<Height>20.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>0</Y></Direction>
-					<Id>1590678398308</Id>
-					<Name><![CDATA[ImageValence - ]]></Name>
-					<X>230</X><Y>480</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1591106657472" Polarity="null">
-					<Height>-38.474</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>260</X><Y>70</Y></Direction>
-					<Id>1590678799016</Id>
-					<Name><![CDATA[<Fear> - ]]></Name>
-					<X>370</X><Y>380</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color>-65536</Color>
 					<LineWidth>1</LineWidth>
 					<Delay>false</Delay>
 				</Link>
@@ -1534,21 +1419,6 @@ CheckInputs();]]></StartupCode>
 					<LineWidth>1</LineWidth>
 					<Delay>false</Delay>
 				</Link>
-				<Link SourceId="1591106657472" Polarity="null">
-					<Height>-37.684</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>260</X><Y>160</Y></Direction>
-					<Id>1590858783592</Id>
-					<Name><![CDATA[<Fear> - ]]></Name>
-					<X>370</X><Y>380</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color>-65536</Color>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
 				<Link SourceId="1590681120248" TargetId="1590353786586" Polarity="null">
 					<Height>0.0</Height>
 					<PolarityPosition>0.95</PolarityPosition>
@@ -1556,21 +1426,6 @@ CheckInputs();]]></StartupCode>
 					<Id>1590861412021</Id>
 					<Name><![CDATA[TreatmentRetraum - NightmareDistress]]></Name>
 					<X>230</X><Y>940</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1591097038621" Polarity="null">
-					<Height>0.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>-590</Y></Direction>
-					<Id>1591007135045</Id>
-					<Name><![CDATA[AffectLoad - ]]></Name>
-					<X>230</X><Y>980</Y>
 					<Label><X>40</X><Y>-50</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1609,221 +1464,12 @@ CheckInputs();]]></StartupCode>
 					<LineWidth>1</LineWidth>
 					<Delay>false</Delay>
 				</Link>
-				<Link SourceId="1591012739489" Polarity="null">
-					<Height>0.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>-310</Y></Direction>
-					<Id>1591033572558</Id>
-					<Name><![CDATA[FearExtinctionAttemptThreshold - ]]></Name>
-					<X>230</X><Y>700</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1591012739489" Polarity="null">
-					<Height>0.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>-220</Y></Direction>
-					<Id>1591033661722</Id>
-					<Name><![CDATA[FearExtinctionAttemptThreshold - ]]></Name>
-					<X>230</X><Y>700</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1590347341808" Polarity="null">
-					<Height>-23.149</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>-90</Y></Direction>
-					<Id>1591094204311</Id>
-					<Name><![CDATA[ImageValence - ]]></Name>
-					<X>230</X><Y>480</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1591106657472" Polarity="null">
-					<Height>-41.035</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>260</X><Y>10</Y></Direction>
-					<Id>1591094208966</Id>
-					<Name><![CDATA[<Fear> - ]]></Name>
-					<X>370</X><Y>380</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color>-65536</Color>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1591034183128" Polarity="null">
-					<Height>20.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>-330</Y></Direction>
-					<Id>1591094218214</Id>
-					<Name><![CDATA[DandRFailureThreshold - ]]></Name>
-					<X>230</X><Y>720</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1591034183128" Polarity="null">
-					<Height>20.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>-240</Y></Direction>
-					<Id>1591094634103</Id>
-					<Name><![CDATA[DandRFailureThreshold - ]]></Name>
-					<X>230</X><Y>720</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1591097038621" Polarity="null">
-					<Height>0.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>-350</Y></Direction>
-					<Id>1591094873137</Id>
-					<Name><![CDATA[AffectLoad - ]]></Name>
-					<X>230</X><Y>980</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link Polarity="null">
-					<Height>20.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>-310</Y></Direction>
-					<Id>1591095266089</Id>
-					<X>230</X><Y>760</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1591097038621" Polarity="null">
-					<Height>0.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>-530</Y></Direction>
-					<Id>1591095278658</Id>
-					<Name><![CDATA[AffectLoad - ]]></Name>
-					<X>230</X><Y>980</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1591095540425" Polarity="null">
-					<Height>20.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>-460</Y></Direction>
-					<Id>1591098371012</Id>
-					<Name><![CDATA[HoursSleepTonight - ]]></Name>
-					<X>230</X><Y>1000</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1591098449521" Polarity="null">
-					<Height>0.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>-240</Y></Direction>
-					<Id>1591098482233</Id>
-					<Name><![CDATA[PostNightmareSleepThreshold - ]]></Name>
-					<X>230</X><Y>780</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1591106187413" Polarity="null">
-					<Height>20.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>-590</Y></Direction>
-					<Id>1591107527933</Id>
-					<Name><![CDATA[HourOfDay - ]]></Name>
-					<X>230</X><Y>1160</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1591106138749" Polarity="null">
-					<Height>20.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>400</X><Y>-40</Y></Direction>
-					<Id>1591107548938</Id>
-					<Name><![CDATA[NormalSleepHour - ]]></Name>
-					<X>230</X><Y>610</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1591187080286" Polarity="null">
-					<Height>-32.67</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>260</X><Y>170</Y></Direction>
-					<Id>1591107598563</Id>
-					<Name><![CDATA[<SleepAvoidance> - ]]></Name>
-					<X>370</X><Y>400</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color>-65536</Color>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1591095598434" TargetId="1591110021172" Polarity="null">
+				<Link SourceId="1591095598434" TargetId="1591109972842" Polarity="null">
 					<Height>20.0</Height>
 					<PolarityPosition>0.95</PolarityPosition>
 					<Direction><X>400</X><Y>-260</Y></Direction>
 					<Id>1591107634437</Id>
-					<Name><![CDATA[SleepDeficitLastWeek - <SleepPressure>]]></Name>
+					<Name><![CDATA[SleepDeficitLastWeek - SleepPressure]]></Name>
 					<X>230</X><Y>1040</Y>
 					<Label><X>40</X><Y>-50</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -1833,12 +1479,12 @@ CheckInputs();]]></StartupCode>
 					<LineWidth>1</LineWidth>
 					<Delay>false</Delay>
 				</Link>
-				<Link SourceId="1591095612372" TargetId="1591110021172" Polarity="null">
+				<Link SourceId="1591095612372" TargetId="1591109972842" Polarity="null">
 					<Height>20.0</Height>
 					<PolarityPosition>0.95</PolarityPosition>
 					<Direction><X>400</X><Y>-280</Y></Direction>
 					<Id>1591109989895</Id>
-					<Name><![CDATA[REMDeficitLastWeek - <SleepPressure>]]></Name>
+					<Name><![CDATA[REMDeficitLastWeek - SleepPressure]]></Name>
 					<X>230</X><Y>1060</Y>
 					<Label><X>40</X><Y>-50</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -1848,12 +1494,12 @@ CheckInputs();]]></StartupCode>
 					<LineWidth>1</LineWidth>
 					<Delay>false</Delay>
 				</Link>
-				<Link SourceId="1590272662305" TargetId="1591107586905" Polarity="null">
+				<Link SourceId="1590272662305" TargetId="1591103848796" Polarity="null">
 					<Height>-28.771</Height>
 					<PolarityPosition>0.95</PolarityPosition>
 					<Direction><X>400</X><Y>380</Y></Direction>
 					<Id>1591110080204</Id>
-					<Name><![CDATA[AffectDistressTendency - <SleepAvoidance>]]></Name>
+					<Name><![CDATA[AffectDistressTendency - SleepAvoidance]]></Name>
 					<X>230</X><Y>370</Y>
 					<Label><X>40</X><Y>-50</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -1923,12 +1569,12 @@ CheckInputs();]]></StartupCode>
 					<LineWidth>1</LineWidth>
 					<Delay>false</Delay>
 				</Link>
-				<Link SourceId="1591177899344" TargetId="1591107586905" Polarity="null">
+				<Link SourceId="1591177899344" TargetId="1591103848796" Polarity="null">
 					<Height>20.0</Height>
 					<PolarityPosition>0.95</PolarityPosition>
 					<Direction><X>400</X><Y>-390</Y></Direction>
 					<Id>1591183470893</Id>
-					<Name><![CDATA[NMIntensityLastWeek - <SleepAvoidance>]]></Name>
+					<Name><![CDATA[NMIntensityLastWeek - SleepAvoidance]]></Name>
 					<X>230</X><Y>1140</Y>
 					<Label><X>40</X><Y>-50</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -1938,12 +1584,12 @@ CheckInputs();]]></StartupCode>
 					<LineWidth>1</LineWidth>
 					<Delay>false</Delay>
 				</Link>
-				<Link SourceId="1590274024200" TargetId="1591107586905" Polarity="null">
+				<Link SourceId="1590274024200" TargetId="1591103848796" Polarity="null">
 					<Height>20.0</Height>
 					<PolarityPosition>0.95</PolarityPosition>
 					<Direction><X>400</X><Y>360</Y></Direction>
 					<Id>1591183505220</Id>
-					<Name><![CDATA[TraumaHistory - <SleepAvoidance>]]></Name>
+					<Name><![CDATA[TraumaHistory - SleepAvoidance]]></Name>
 					<X>230</X><Y>390</Y>
 					<Label><X>40</X><Y>-50</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -2198,7 +1844,7 @@ CheckInputs();]]></StartupCode>
 					<PolarityPosition>0.95</PolarityPosition>
 					<Direction><X>400</X><Y>-260</Y></Direction>
 					<Id>1593027719527</Id>
-					<Name><![CDATA[NonTraumNMTonight - Fear]]></Name>
+					<Name><![CDATA[IdiopathicNMTonight - Fear]]></Name>
 					<X>230</X><Y>1100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -2433,12 +2079,12 @@ CheckInputs();]]></StartupCode>
 					<LineWidth>1</LineWidth>
 					<Delay>false</Delay>
 				</Link>
-				<Link SourceId="1594142480485" TargetId="1591107586905" Polarity="null">
+				<Link SourceId="1594142480485" TargetId="1591103848796" Polarity="null">
 					<Height>20.0</Height>
 					<PolarityPosition>0.95</PolarityPosition>
 					<Direction><X>20</X><Y>-60</Y></Direction>
 					<Id>1594143283324</Id>
-					<Name><![CDATA[Perseveration - <SleepAvoidance>]]></Name>
+					<Name><![CDATA[Perseveration - SleepAvoidance]]></Name>
 					<X>610</X><Y>810</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -2668,12 +2314,12 @@ StateHistory.add(this.WorkingMemoryImages);]]></EntryAction>
 				</StatechartElement>
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1594141851922</Id>
-					<Name><![CDATA[transition1]]></Name>
+					<Name><![CDATA[FearExtinctionStarts]]></Name>
 					<X>1782</X><Y>620</Y>
-					<Label><X>10</X><Y>0</Y></Label>
+					<Label><X>28</X><Y>15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
+					<ShowLabel>true</ShowLabel>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
 						<Point><X>218</X><Y>0</Y></Point>
@@ -2742,7 +2388,7 @@ StateHistory.add(this.WorkingMemoryImages);]]></EntryAction>
 					</Points>
 					<IconOffset>20.0</IconOffset>
 					<Properties Source="1594141991825" Target="1594141471821" Trigger="timeout">
-						<Action><![CDATA[OnNonTraumaticNM();]]></Action>
+						<Action><![CDATA[OnIdiopathicNM();]]></Action>
 						<Timeout Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
@@ -2841,7 +2487,7 @@ StateHistory.add(this.WorkingMemoryImages);]]></EntryAction>
 						<Action><![CDATA[traceln("Hours sleep tonight: " + HoursSleepTonight);
 traceln("Max hours sleep: " + MaxHoursSleepPerNight);
 traceln("Fear: " + Fear);
-traceln("POstNight " + PostNightmareSleepThreshold);
+traceln("PostNight " + PostNightmareSleepThreshold);
 
 EndSleepForNight();]]></Action>
 						<Timeout Class="CodeUnitValue">
@@ -3005,13 +2651,13 @@ RunHourMostRecentlyAttemptedSleep = HourOfRun;]]></Action>
 				</StatechartElement>
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1594323716188</Id>
-					<Name><![CDATA[transition2]]></Name>
+					<Name><![CDATA[WakeupAfterFEPartial_NoNightmare]]></Name>
 					<Description><![CDATA[Transition will increment HourOfRun and HoursSleep, so we need to add 1 here.]]></Description>
 					<X>2070</X><Y>970</Y>
-					<Label><X>10</X><Y>0</Y></Label>
+					<Label><X>-700</X><Y>110</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
+					<ShowLabel>true</ShowLabel>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
 						<Point><X>0</X><Y>90</Y></Point>
@@ -3072,6 +2718,8 @@ EndSleepForNight();]]></Action>
 					</Properties>
 					<Action><![CDATA[
 /* ************************************************************************************************************
+THESE COMMENTS ARE OUT OF DATE. For updated documentation, see the word doc in the repo.
+
 The HourlyEvent procedure updates tracking variables and makes them available for use in flow rate calculations and reporting.
 It also updates tracking collection variables, to maintain a history for analysis.
 
@@ -3091,9 +2739,9 @@ The tracking variables and collections are as follows:
 	[REMDeficitHistory stores the nightly REM deficit in an array at noon each day]
 •	HoursSinceLastTreatment: Tracks hours since last treatment. This is used with TreatmentFrequency to determine whether a treatment is scheduled; treatments are assumed to require no time.
 	[TreatmentHistory accumulates hours between treatments in an array, updated each treatment]
-•	NonTraumNMTonight: Tracks count of traumatic nightmares (purple path) during the current night.
+•	TraumNMTonight: Tracks count of traumatic nightmares (purple path) during the current night.
 	[NonTraumNMHistory accumulates this daily at noon]
-•	TraumNMTonight: Tracks count of non-traumatic nightmares (red path) during the current night.
+•	IdiopathicNMTonight: Tracks count of non-traumatic nightmares (red path) during the current night.
 	[TraumNMHistory accumulates this daily at noon]
 •	NMIntensityLastWeek: Tracks a measure of the frequency and intensity of nightmares each night = average of nightly nightmare count
 	traumatic nightmares count twice as heavily as nontraumatic nightmares) divided by MaxREMCyclesPerNight.
@@ -3248,7 +2896,7 @@ if (HourOfDay >= 24) {
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1594227255755</Id>
 					<Name><![CDATA[OnTransitionOutOfState]]></Name>
-					<X>630</X><Y>1220</Y>
+					<X>30</X><Y>1580</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3261,7 +2909,7 @@ HourOfDay = (HourOfDay + 1) % 24;]]></Body>
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1594227563609</Id>
 					<Name><![CDATA[OnTransitionFromSleepingState]]></Name>
-					<X>630</X><Y>1240</Y>
+					<X>30</X><Y>1600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3274,7 +2922,7 @@ OnTransitionOutOfState();]]></Body>
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1594227791828</Id>
 					<Name><![CDATA[OnTraumaticNM]]></Name>
-					<X>630</X><Y>1260</Y>
+					<X>30</X><Y>1620</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3288,15 +2936,15 @@ MostRecentRegimen = 3;]]></Body>
 					<ReturnModificator>VOID</ReturnModificator>
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1594227946002</Id>
-					<Name><![CDATA[OnNonTraumaticNM]]></Name>
-					<X>630</X><Y>1280</Y>
+					<Name><![CDATA[OnIdiopathicNM]]></Name>
+					<X>30</X><Y>1640</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[NonTraumNMTonight += 1;
-AffectLoad += NTNMAffectLoadIncrement;
-traceln("NonTraumNM! " + NonTraumNMTonight);
+					<Body><![CDATA[IdiopathicNMTonight += 1;
+AffectLoad += IdiopathicNMAffectLoadIncrement;
+traceln("IdiopathicNM! " + IdiopathicNMTonight);
 OnTransitionFromSleepingState();
 MostRecentRegimen = 2;]]></Body>
 				</Function>
@@ -3305,7 +2953,7 @@ MostRecentRegimen = 2;]]></Body>
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1594228222306</Id>
 					<Name><![CDATA[OnFEPartial]]></Name>
-					<X>630</X><Y>1300</Y>
+					<X>30</X><Y>1660</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3320,7 +2968,7 @@ MostRecentRegimen = 1;]]></Body>
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1594228744495</Id>
 					<Name><![CDATA[EndSleepForNight]]></Name>
-					<X>630</X><Y>1320</Y>
+					<X>30</X><Y>1680</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3334,12 +2982,12 @@ SleepDeficitHistory.add(sleepDeficitTonight);
 double REMDeficitTonight = max(0.0, MaxREMCyclesPerNight - REMPeriodsTonight) / MaxREMCyclesPerNight;
 REMDeficitHistory.add(REMDeficitTonight);
 
-NonTraumNMHistory.add(NonTraumNMTonight);
+IdiopathicNMHistory.add(IdiopathicNMTonight);
 
-TraumNMHistory.add(NonTraumNMTonight);
+TraumNMHistory.add(TraumNMTonight);
 
 double NMIntensityTonight = min(1.0,
-	(NonTraumNMTonight + 2*TraumNMTonight) / MaxREMCyclesPerNight);
+	(IdiopathicNMTonight + 2*TraumNMTonight) / MaxREMCyclesPerNight);
 NMIntensityHistory.add(NMIntensityTonight);
 
 AffectLoadHistory.add(AffectLoad);
@@ -3360,7 +3008,7 @@ NMIntensityLastWeek = NMIntensityHistory
 
 REMPeriodsTonight = 0;
 HoursSleepTonight = 0;
-NonTraumNMTonight = 0;
+IdiopathicNMTonight = 0;
 TraumNMTonight = 0;
 
 // Ignore treatment for now.
@@ -3372,7 +3020,7 @@ TraumNMTonight = 0;
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1594231671566</Id>
 					<Name><![CDATA[Init]]></Name>
-					<X>630</X><Y>1340</Y>
+					<X>30</X><Y>1700</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3385,14 +3033,14 @@ for (int i = 0; i < 7; i++) {
 	REMPeriodsHistory.add(MaxREMCyclesPerNight);
 	SleepDeficitHistory.add(0.0);
 	REMDeficitHistory.add(0.0);
-	NonTraumNMHistory.add(0.0);
+	IdiopathicNMHistory.add(0.0);
 	TraumNMHistory.add(0.0);
 	NMIntensityHistory.add(0.0);
 }
 
 REMPeriodsTonight = 0;
 HoursSleepTonight = 0;
-NonTraumNMTonight = 0;
+IdiopathicNMTonight = 0;
 TraumNMTonight = 0;
 
 // Not sure about these init values
@@ -3405,7 +3053,7 @@ MostRecentRegimenHistory.add(0);]]></Body>
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1594235599543</Id>
 					<Name><![CDATA[DisplayTestResult]]></Name>
-					<X>630</X><Y>1380</Y>
+					<X>420</X><Y>1720</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3427,7 +3075,7 @@ MostRecentRegimenHistory.add(0);]]></Body>
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1594321094149</Id>
 					<Name><![CDATA[CheckInputs]]></Name>
-					<X>630</X><Y>1410</Y>
+					<X>420</X><Y>1760</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3449,7 +3097,7 @@ if (inputValidationMsg.equals("")) {
 					<ReturnType><![CDATA[String]]></ReturnType>
 					<Id>1594394206873</Id>
 					<Name><![CDATA[GetOutput]]></Name>
-					<X>630</X><Y>1440</Y>
+					<X>420</X><Y>1740</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3482,7 +3130,7 @@ sb.append(IdealHoursSleepPerNight);
 sb.append(',');
 sb.append(NormalSleepHour);
 sb.append(',');
-sb.append(NTNMAffectLoadIncrement);
+sb.append(IdiopathicNMAffectLoadIncrement);
 sb.append(',');
 sb.append(TNMAffectLoadIncrement);
 sb.append(',');
@@ -3521,7 +3169,7 @@ return sb.toString();]]></Body>
 					<ReturnType><![CDATA[String]]></ReturnType>
 					<Id>1594394650293</Id>
 					<Name><![CDATA[GetHeaders]]></Name>
-					<X>630</X><Y>1470</Y>
+					<X>420</X><Y>1780</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3552,7 +3200,7 @@ sb.append("IdealHoursSleepPerNight");
 sb.append(',');
 sb.append("NormalSleepHour");
 sb.append(',');
-sb.append("NTNMAffectLoadIncrement");
+sb.append("NTNMAffectLoadIncrement"); // NT = Idiopathic
 sb.append(',');
 sb.append("TNMAffectLoadIncrement");
 sb.append(',');
@@ -3589,7 +3237,7 @@ return sb.toString();]]></Body>
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1594413414352</Id>
 					<Name><![CDATA[calculatePerseveration]]></Name>
-					<X>630</X><Y>1490</Y>
+					<X>30</X><Y>1720</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3601,7 +3249,7 @@ return sb.toString();]]></Body>
 					<ReturnType><![CDATA[String]]></ReturnType>
 					<Id>1597080259596</Id>
 					<Name><![CDATA[GetDailyOutput]]></Name>
-					<X>585</X><Y>1532</Y>
+					<X>420</X><Y>1800</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3614,7 +3262,7 @@ for (int i = 0; i < AffectLoadHistory.size(); i++) {
 	sb.append(',');
 	sb.append(i);
 	sb.append(',');
-	sb.append(NonTraumNMHistory.get(i + 7));
+	sb.append(IdiopathicNMHistory.get(i + 7));
 	sb.append(',');
 	sb.append(TraumNMHistory.get(i + 7));
 	sb.append(',');
@@ -3712,7 +3360,24 @@ return sb.toString();]]></Body>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[Description goes here.]]></Text>
+					<Text><![CDATA[The Disturbed Dreaming Model (DDM) implements Nielsen & Levin's Affect Network Dysfunction model of nightmare production. The key publications are:
+•	Levin, Ross, and Tore Nielsen. “Nightmares, Bad Dreams, and Emotion Dysregulation: A Review and New Neurocognitive Model of Dreaming.” Current Directions in Psychological Science 18, no. 2 (2009): 84–88.
+•	Levin, Ross, and Tore A. Nielsen. “Disturbed Dreaming, Posttraumatic Stress Disorder, and Affect Distress: A Review and Neurocognitive Model.” Psychological Bulletin 133, no. 3 (May 2007): 482–528. https://doi.org/10.1037/0033-2909.133.3.482.
+•	Nielsen, Tore, and Ross Levin. “Nightmares: A New Neurocognitive Model.” Sleep Medicine Reviews 11, no. 4 (August 1, 2007): 295–310. https://doi.org/10.1016/j.smrv.2007.03.004.
+Nielsen & Levin's neurocognitive model hypothesizes that nightmares are caused by the malfunctioning of an adaptive fear extinction process that occurs during normal dreaming. When working properly, the fear extinction process activates 
+elements of fear memories decontextualized from their real-world contexts and 
+recombines them with elements of other non-fearful memories thereby gradually extinguishing fear and helping the dreamer to effectively regulate their emotions. Neurologically, this fear extinction function is performed by a network of limbic,
+ paralimbic, and pre-frontal regions: the hippocampus (Hip) controls memory context and is crucial to the 
+decontextualization and recombination process; the amygdala (Am) controls fear memory acquisition and regulates emotional activation via stimulation
+ of the brainstem and hypothalamus (Hyp); the medial prefrontal cortex (mPFC) stores fear
+ extinction memories and regulates Am’s outputs to brainstem and hypothalamus, thereby maintaining tolerable levels of fear; and the anterior cingulate cortex (ACC) 
+controls affect distress and works with the mPFC to downregulate Am’s outputs to brainstem and Hyp. During a nightmare, the mPFC and ACC fail to sufficiently 
+dampen Am’s outputs to brainstem and Hyp, resulting in increasing heart rate, respiration, and motor activation and, eventually, to the dreamer 
+awakening terrified. According to this model, the activation of the fear extinction process is determined by “affect load,” a hypothetical factor that reflects the 
+cumulative effect of stressful and emotionally negative events, from major crises such as the death of a parent or the loss of a job to daily hassles such as 
+commuting to work and paying taxes. Whether nightmares constitute a clinical problem is largely determined by “affect distress,” which is a dispositional factor 
+that reflects a person’s tendency become highly distressed and emotionally disregulated in response to emotional stimuli. 
+]]></Text>
 					<Font>
 						<Name>calibri</Name>
 						<Size>11</Size>
@@ -4002,67 +3667,6 @@ provides another important dimension to the data.]]></Text>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[Outcome Variables]]></Text>
-					<Font>
-						<Name>SansSerif</Name>
-						<Size>10</Size>
-						<Style>0</Style>
-					</Font>
-					<Alignment>LEFT</Alignment>
-				</Text>
-			</Presentation>
-
-				</Group>
-				<Group>
-					<Id>1591105488072</Id>
-					<Name><![CDATA[group2]]></Name>
-					<X>720</X><Y>450</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-
-			<Presentation>
-				<RoundedRectangle>
-					<Id>1591100999103</Id>
-					<Name><![CDATA[roundRectangle6]]></Name>
-					<X>-100</X><Y>-100</Y>
-					<Label><X>10</X><Y>10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor>-16777216</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<Width>190</Width>
-					<Height>290</Height>
-					<Rotation>0.0</Rotation>
-					<FillColor>-1</FillColor>
-					<FillMaterial>null</FillMaterial>
-					<ArcRadius>10</ArcRadius>
-				</RoundedRectangle>
-				<Text>
-					<Id>1590353968813</Id>
-					<Name><![CDATA[text10]]></Name>
-					<X>30</X><Y>-100</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<Color>-16777216</Color>
-					<Text><![CDATA[Flow Rates]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>10</Size>
@@ -4391,52 +3995,6 @@ provides another important dimension to the data.]]></Text>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 
-			<Presentation>
-				<RoundedRectangle>
-					<Id>1591099454994</Id>
-					<Name><![CDATA[roundRectangle5]]></Name>
-					<X>-120</X><Y>-80</Y>
-					<Label><X>10</X><Y>10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor>-16777216</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<Width>230</Width>
-					<Height>290</Height>
-					<Rotation>0.0</Rotation>
-					<FillColor>-1</FillColor>
-					<FillMaterial>null</FillMaterial>
-					<ArcRadius>10</ArcRadius>
-				</RoundedRectangle>
-				<Text>
-					<Id>1591095757762</Id>
-					<Name><![CDATA[text14]]></Name>
-					<X>-110</X><Y>-80</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<Color>-16777216</Color>
-					<Text><![CDATA[TrackingVariables]]></Text>
-					<Font>
-						<Name>SansSerif</Name>
-						<Size>10</Size>
-						<Style>0</Style>
-					</Font>
-					<Alignment>LEFT</Alignment>
-				</Text>
-			</Presentation>
 
 				</Group>
 				<Group>
@@ -4696,58 +4254,12 @@ provides another important dimension to the data.]]></Text>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 
-			<Presentation>
-				<RoundedRectangle>
-					<Id>1591180975857</Id>
-					<Name><![CDATA[roundRectangle13]]></Name>
-					<X>-30</X><Y>-210</Y>
-					<Label><X>10</X><Y>10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor>-16777216</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<Width>190</Width>
-					<Height>280</Height>
-					<Rotation>0.0</Rotation>
-					<FillColor>-1</FillColor>
-					<FillMaterial>null</FillMaterial>
-					<ArcRadius>10</ArcRadius>
-				</RoundedRectangle>
-				<Text>
-					<Id>1591180975859</Id>
-					<Name><![CDATA[text20]]></Name>
-					<X>60</X><Y>-210</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<Color>-16777216</Color>
-					<Text><![CDATA[History Collections]]></Text>
-					<Font>
-						<Name>SansSerif</Name>
-						<Size>10</Size>
-						<Style>0</Style>
-					</Font>
-					<Alignment>LEFT</Alignment>
-				</Text>
-			</Presentation>
 
 				</Group>
 				<Text>
 					<Id>1594234009015</Id>
 					<Name><![CDATA[testOutput]]></Name>
-					<X>990</X><Y>1090</Y>
+					<X>990</X><Y>1160</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4768,7 +4280,7 @@ provides another important dimension to the data.]]></Text>
 				<Rectangle>
 					<Id>1594235639725</Id>
 					<Name><![CDATA[test_color]]></Name>
-					<X>900</X><Y>1080</Y>
+					<X>900</X><Y>1150</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4790,7 +4302,96 @@ provides another important dimension to the data.]]></Text>
 				<RoundedRectangle>
 					<Id>1594236975330</Id>
 					<Name><![CDATA[roundRectangle14]]></Name>
-					<X>620</X><Y>1180</Y>
+					<X>10</X><Y>1540</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>510</Width>
+					<Height>280</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-1</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<ArcRadius>10</ArcRadius>
+				</RoundedRectangle>
+				<Text>
+					<Id>1594237035442</Id>
+					<Name><![CDATA[text9]]></Name>
+					<X>20</X><Y>1550</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Model mechanics methods & variables
+]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>10</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<RoundedRectangle>
+					<Id>1591099454994</Id>
+					<Name><![CDATA[roundRectangle5]]></Name>
+					<X>10</X><Y>900.372</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>230</Width>
+					<Height>319.628</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-1</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<ArcRadius>10</ArcRadius>
+				</RoundedRectangle>
+				<Text>
+					<Id>1591095757762</Id>
+					<Name><![CDATA[text14]]></Name>
+					<X>20</X><Y>900.372</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[TrackingVariables]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>10</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<RoundedRectangle>
+					<Id>1591180975857</Id>
+					<Name><![CDATA[roundRectangle13]]></Name>
+					<X>620</X><Y>900.279</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4804,16 +4405,16 @@ provides another important dimension to the data.]]></Text>
 					<LineMaterial>null</LineMaterial>
 					<LineStyle>SOLID</LineStyle>
 					<Width>190</Width>
-					<Height>180</Height>
+					<Height>409.721</Height>
 					<Rotation>0.0</Rotation>
 					<FillColor>-1</FillColor>
 					<FillMaterial>null</FillMaterial>
 					<ArcRadius>10</ArcRadius>
 				</RoundedRectangle>
 				<Text>
-					<Id>1594237035442</Id>
-					<Name><![CDATA[text9]]></Name>
-					<X>720</X><Y>1180</Y>
+					<Id>1591180975859</Id>
+					<Name><![CDATA[text20]]></Name>
+					<X>710</X><Y>900.279</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4823,7 +4424,7 @@ provides another important dimension to the data.]]></Text>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[Tracking methods]]></Text>
+					<Text><![CDATA[History Collections]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>10</Size>
@@ -4832,9 +4433,9 @@ provides another important dimension to the data.]]></Text>
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1594321137798</Id>
+					<Id>1622574300213</Id>
 					<Name><![CDATA[text_inputValidation]]></Name>
-					<X>860</X><Y>380</Y>
+					<X>1000</X><Y>1200</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4844,7 +4445,8 @@ provides another important dimension to the data.]]></Text>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[Input Validation]]></Text>
+					<Text><![CDATA[Input Validation will go here
+]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>10</Size>
@@ -4905,206 +4507,6 @@ provides another important dimension to the data.]]></Text>
 		</Outputs>
 	</RunConfiguration>
 	<Experiments>	
-		<!--   =========   Simulation Experiment   ========  -->
-		<SimulationExperiment ActiveObjectClassId="1590253624667">
-			<Id>1590253624685</Id>
-			<Name><![CDATA[Simulation]]></Name>
-			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
-			<CommandLineArguments><![CDATA[]]></CommandLineArguments>
-			<MaximumMemory>512</MaximumMemory>
-			<RandomNumberGenerationType>fixedSeed</RandomNumberGenerationType>
-			<CustomGeneratorCode>new Random()</CustomGeneratorCode>
-			<SeedValue>1</SeedValue>
-			<SelectionModeForSimultaneousEvents>LIFO</SelectionModeForSimultaneousEvents>
-			<VmArgs><![CDATA[]]></VmArgs>
-			<LoadRootFromSnapshot>false</LoadRootFromSnapshot>
-
-			<Presentation>
-				<Text>
-					<Id>0</Id>
-					<Name><![CDATA[text]]></Name>
-					<X>50</X><Y>30</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<Color>-12490271</Color>
-					<Text><![CDATA[Disturbed Dreaming Model]]></Text>
-					<Font>
-						<Name>SansSerif</Name>
-						<Size>24</Size>
-						<Style>0</Style>
-					</Font>
-					<Alignment>LEFT</Alignment>
-				</Text>
-			</Presentation>
-
-			<Parameters>			
-				<Parameter>
-					<ParameterName><![CDATA[AffectDistressTendency]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[1]]></Code>
-					</ParameterValue>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[TraumaHistory]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[1]]></Code>
-					</ParameterValue>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[FearExtinctionFailureThreshold]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[1.1]]></Code>
-					</ParameterValue>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[ImageValence]]></ParameterName>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[ImageArousal]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[1]]></Code>
-					</ParameterValue>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[ImageDominance]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[1]]></Code>
-					</ParameterValue>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[InitialAffectLoad]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[1]]></Code>
-					</ParameterValue>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[TreatmentDegreeOfControl]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[1]]></Code>
-					</ParameterValue>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[TreatmentImagesSimilarToNM]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[1]]></Code>
-					</ParameterValue>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[AdrenalineAntagonists]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ParameterValue>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[TreatmentFrequency]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[1]]></Code>
-					</ParameterValue>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[TreatmentType]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[1]]></Code>
-					</ParameterValue>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[ImageStabilizationCapacity]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[1]]></Code>
-					</ParameterValue>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[FearExtinctionAttemptThreshold]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[0.9]]></Code>
-					</ParameterValue>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[DandRFailureThreshold]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[1]]></Code>
-					</ParameterValue>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[MaxREMCyclesPerNight]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[1]]></Code>
-					</ParameterValue>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[MaxHoursSleepPerNight]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[1]]></Code>
-					</ParameterValue>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[IdealHoursSleepPerNight]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[1]]></Code>
-					</ParameterValue>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[FEAffectLoadDecrement]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[1]]></Code>
-					</ParameterValue>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[PostNightmareSleepThreshold]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[1]]></Code>
-					</ParameterValue>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[NormalSleepHour]]></ParameterName>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[NTNMAffectLoadIncrement]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[1]]></Code>
-					</ParameterValue>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[TNMAffectLoadIncrement]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[1]]></Code>
-					</ParameterValue>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[Lucidity]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[1]]></Code>
-					</ParameterValue>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[TimeInState]]></ParameterName>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[ExperimentId]]></ParameterName>
-				</Parameter>
-			</Parameters>			
-			<PresentationProperties>
-				<EnableZoomAndPanning>true</EnableZoomAndPanning>
-				<ExecutionMode><![CDATA[realTimeScaled]]></ExecutionMode>
-				<Title><![CDATA[Disturbed Dreaming Model : Simulation]]></Title>	
-				<EnableDeveloperPanel>true</EnableDeveloperPanel>
-				<ShowDeveloperPanelOnStart>false</ShowDeveloperPanelOnStart>
-				<RealTimeScale>1.0</RealTimeScale>
-			</PresentationProperties>
-			<ModelTimeProperties>
-				<StopOption><![CDATA[Never]]></StopOption>
-				<InitialDate><![CDATA[1590192000000]]></InitialDate>	
-				<InitialTime><![CDATA[0.0]]></InitialTime>	
-				<FinalDate><![CDATA[1592870400000]]></FinalDate>	
-				<FinalTime><![CDATA[100.0]]></FinalTime>	
-			</ModelTimeProperties>
-		</SimulationExperiment>
 		<!--   =========   Simulation Experiment   ========  -->
 		<SimulationExperiment ActiveObjectClassId="1590253624667">
 			<Id>1594231814301</Id>
@@ -5280,7 +4682,7 @@ provides another important dimension to the data.]]></Text>
 				</Variable>
 				<Variable Class="PlainVariable">
 					<Id>1594232435786</Id>
-					<Name><![CDATA[NTNMAffectLoadIncrement]]></Name>
+					<Name><![CDATA[IdiopathicNMAffectLoadIncrement]]></Name>
 					<X>640</X><Y>540</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -5463,7 +4865,7 @@ MaxREMCyclesPerNight = 4;
 MaxHoursSleepPerNight = 8;
 IdealHoursSleepPerNight = 8;
 NormalSleepHour = 22;
-NTNMAffectLoadIncrement = 0.005;
+IdiopathicNMAffectLoadIncrement = 0.005;
 TNMAffectLoadIncrement = 0.01;
 FEAffectLoadDecrement = 0.01;
 
@@ -6098,8 +5500,8 @@ checkTestsFunction = root -> {
 		errorMessage += "REMPeriodsTonight: 0 != " + (root.REMPeriodsHistory.size() - 1) + "\n";
 	}
 	
-	if (root.NonTraumNMHistory.get(root.NonTraumNMHistory.size() - 1) != 3) {
-		errorMessage += "NonTraumNM: 3 != " + (root.NonTraumNMHistory.size() - 1) + "\n";
+	if (root.IdiopathicNMHistory.get(root.IdiopathicNMHistory.size() - 1) != 3) {
+		errorMessage += "IdiopathicNM: 3 != " + (root.IdiopathicNMHistory.size() - 1) + "\n";
 	}
 	
 	if (root.HourOfDay != (22 + 15) % 24) {
@@ -6118,7 +5520,7 @@ checkTestsFunction = root -> {
 					</BasicProperties>
 					<ExtendedProperties>
 						<Font Name="Dialog" Size="11" Style="0"/>
-						<LabelText><![CDATA[Non Traum NM Wake cycle: Wake after night]]></LabelText>
+						<LabelText><![CDATA[Idiopathic NM Wake cycle: Wake after night]]></LabelText>
 					</ExtendedProperties>
 				</Control>
 				<Text>
@@ -6134,7 +5536,7 @@ checkTestsFunction = root -> {
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[Cycle of NonTraumatic nightmares resulting in waking and
+					<Text><![CDATA[Cycle of Idiopathic nightmares resulting in waking and
 no REM cycles]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
@@ -6214,8 +5616,8 @@ checkTestsFunction = root -> {
 		errorMessage += "REMPeriodsTonight: 0 != " + root.REMPeriodsTonight + "\n";
 	}
 	
-	if (root.NonTraumNMHistory.get(root.TraumNMHistory.size() - 1) != 4) {
-		errorMessage += "TraumNM: 4 != " + (root.TraumNMHistory.size() - 1) + "\n";
+	if (root.TraumNMHistory.get(root.TraumNMHistory.size() - 1) != 4) {
+		errorMessage += "TraumNM: 4 != " + (root.TraumNMHistory.get(root.TraumNMHistory.size() - 1)) + "\n";
 	}
 	
 	if (root.HourOfDay != (22 + 15) % 24) {
@@ -6331,8 +5733,8 @@ checkTestsFunction = root -> {
 		errorMessage += "REMPeriodsTonight: 0 != " + (root.REMPeriodsHistory.size() - 1) + "\n";
 	}
 	
-	if (root.NonTraumNMHistory.get(root.NonTraumNMHistory.size() - 1) != 1) {
-		errorMessage += "NonTraumNM: 1 != " + (root.NonTraumNMHistory.size() - 1) + "\n";
+	if (root.IdiopathicNMHistory.get(root.IdiopathicNMHistory.size() - 1) != 1) {
+		errorMessage += "IdiopathicNM: 1 != " + (root.IdiopathicNMHistory.size() - 1) + "\n";
 	}
 	
 	if (root.HourOfDay != (22 + 15) % 24) {
@@ -6351,7 +5753,7 @@ checkTestsFunction = root -> {
 					</BasicProperties>
 					<ExtendedProperties>
 						<Font Name="Dialog" Size="11" Style="0"/>
-						<LabelText><![CDATA[Non Traum NM Wake cycle: Wake from after first nightmare]]></LabelText>
+						<LabelText><![CDATA[Idiopathic NM Wake cycle: Wake from after first nightmare]]></LabelText>
 					</ExtendedProperties>
 				</Control>
 				<Text>
@@ -6367,7 +5769,7 @@ checkTestsFunction = root -> {
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[Cycle of NonTraumatic nightmares accumulates fear
+					<Text><![CDATA[Cycle of Idiopathic nightmares accumulates fear
  resulting in waking and no REM cycles]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
@@ -6446,8 +5848,8 @@ checkTestsFunction = root -> {
 		errorMessage += "REMPeriodsTonight: 0 != " + (root.REMPeriodsHistory.size() - 1) + "\n";
 	}
 	
-	if (root.NonTraumNMHistory.get(root.NonTraumNMHistory.size() - 1) != 2) {
-		errorMessage += "NonTraumNM: 1 != " + (root.NonTraumNMHistory.size() - 1) + "\n";
+	if (root.IdiopathicNMHistory.get(root.IdiopathicNMHistory.size() - 1) != 2) {
+		errorMessage += "IdiopathicNM: 1 != " + (root.IdiopathicNMHistory.size() - 1) + "\n";
 	}
 	
 	if (root.HourOfDay != (22 + 15) % 24) {
@@ -6466,7 +5868,7 @@ checkTestsFunction = root -> {
 					</BasicProperties>
 					<ExtendedProperties>
 						<Font Name="Dialog" Size="11" Style="0"/>
-						<LabelText><![CDATA[Non Traum NM Wake cycle: Wake from after second nightmare]]></LabelText>
+						<LabelText><![CDATA[Idiopathic NM Wake cycle: Wake from after second nightmare]]></LabelText>
 					</ExtendedProperties>
 				</Control>
 				<Text>
@@ -6482,7 +5884,7 @@ checkTestsFunction = root -> {
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[Cycle of NonTraumatic nightmares accumulates fear
+					<Text><![CDATA[Cycle of Idiopathic nightmares accumulates fear
  resulting in waking and no REM cycles]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
@@ -6562,8 +5964,8 @@ checkTestsFunction = root -> {
 		errorMessage += "REMPeriodsTonight: 0 != " + root.REMPeriodsTonight + "\n";
 	}
 	
-	if (root.NonTraumNMHistory.get(root.TraumNMHistory.size() - 1) != 1) {
-		errorMessage += "TraumNM: 1 != " + (root.TraumNMHistory.size() - 1) + "\n";
+	if (root.TraumNMHistory.get(root.TraumNMHistory.size() - 1) != 1) {
+		errorMessage += "TraumNM: 1 != " + (root.TraumNMHistory.get(root.TraumNMHistory.size() - 1)) + "\n";
 	}
 	
 	if (root.HourOfDay != (22 + 15) % 24) {
@@ -6644,7 +6046,7 @@ FearExtinctionCompletionThreshold = 0.7;
 FearExtinctionFailureThreshold = 0.1;
 FEAffectLoadDecrement = 0.15;
 DandRFailureThreshold = 0.1;
-PostNightmareSleepThreshold = 0.35;
+PostNightmareSleepThreshold = 0.4;
 
 checkTestsFunction = root -> {
 	String errorMessage = equals(root.StateHistory, 
@@ -6679,8 +6081,8 @@ checkTestsFunction = root -> {
 		errorMessage += "REMPeriodsTonight: 0 != " + root.REMPeriodsTonight + "\n";
 	}
 	
-	if (root.NonTraumNMHistory.get(root.TraumNMHistory.size() - 1) != 2) {
-		errorMessage += "TraumNM: 2 != " + (root.TraumNMHistory.size() - 1) + "\n";
+	if (root.TraumNMHistory.get(root.TraumNMHistory.size() - 1) != 2) {
+		errorMessage += "TraumNM: 2 != " + (root.TraumNMHistory.get(root.TraumNMHistory.size() - 1)) + "\n";
 	}
 	
 	if (root.HourOfDay != (22 + 15) % 24) {
@@ -6793,8 +6195,8 @@ checkTestsFunction = root -> {
 		errorMessage += "REMPeriodsTonight: 4 != " + (root.REMPeriodsHistory.size() - 1) + "\n";
 	}
 	
-	if (root.NonTraumNMHistory.get(root.NonTraumNMHistory.size() - 1) != 0) {
-		errorMessage += "NonTraumNM: 0 != " + (root.NonTraumNMHistory.size() - 1) + "\n";
+	if (root.IdiopathicNMHistory.get(root.IdiopathicNMHistory.size() - 1) != 0) {
+		errorMessage += "IdiopathicNM: 0 != " + (root.IdiopathicNMHistory.size() - 1) + "\n";
 	}
 	
 	if (root.HourOfDay != (22 + 15) % 24) {
@@ -6868,7 +6270,7 @@ MaxREMCyclesPerNight = 4;
 MaxHoursSleepPerNight = 8;
 IdealHoursSleepPerNight = 7;
 NormalSleepHour = 22;
-NTNMAffectLoadIncrement = 0.09;
+IdiopathicNMAffectLoadIncrement = 0.09;
 TNMAffectLoadIncrement = 0.10;
 FEAffectLoadDecrement = 0.11;
 
@@ -6902,7 +6304,7 @@ checkTestsFunction = root -> {
 	errorMessage += equalsDouble(root.MaxHoursSleepPerNight, MaxHoursSleepPerNight, "MaxHoursSleepPerNight");
 	errorMessage += equalsDouble(root.IdealHoursSleepPerNight, IdealHoursSleepPerNight, "IdealHoursSleepPerNight");
 	errorMessage += equalsDouble(root.NormalSleepHour, NormalSleepHour, "NormalSleepHour");
-	errorMessage += equalsDouble(root.NTNMAffectLoadIncrement, NTNMAffectLoadIncrement, "NTNMAffectLoadIncrement");
+	errorMessage += equalsDouble(root.IdiopathicNMAffectLoadIncrement, IdiopathicNMAffectLoadIncrement, "IdiopathicNMAffectLoadIncrement");
 	errorMessage += equalsDouble(root.TNMAffectLoadIncrement, TNMAffectLoadIncrement, "TNMAffectLoadIncrement");
 	errorMessage += equalsDouble(root.FEAffectLoadDecrement, FEAffectLoadDecrement, "FEAffectLoadDecrement");
 	errorMessage += equalsDouble(root.FearExtinctionAttemptThreshold, FearExtinctionAttemptThreshold, "FearExtinctionAttemptThreshold");
@@ -7018,21 +6420,9 @@ checkTestsFunction = root -> {
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
-					<ParameterName><![CDATA[MaxREMCyclesPerNight]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[MaxREMCyclesPerNight]]></Code>
-					</ParameterValue>
-				</Parameter>
-				<Parameter>
 					<ParameterName><![CDATA[MaxHoursSleepPerNight]]></ParameterName>
 					<ParameterValue Class="CodeValue">
 						<Code><![CDATA[MaxHoursSleepPerNight]]></Code>
-					</ParameterValue>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[IdealHoursSleepPerNight]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[IdealHoursSleepPerNight]]></Code>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
@@ -7054,9 +6444,9 @@ checkTestsFunction = root -> {
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
-					<ParameterName><![CDATA[NTNMAffectLoadIncrement]]></ParameterName>
+					<ParameterName><![CDATA[IdiopathicNMAffectLoadIncrement]]></ParameterName>
 					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[NTNMAffectLoadIncrement]]></Code>
+						<Code><![CDATA[IdiopathicNMAffectLoadIncrement]]></Code>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
@@ -7077,6 +6467,12 @@ checkTestsFunction = root -> {
 				<Parameter>
 					<ParameterName><![CDATA[ExperimentId]]></ParameterName>
 				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[MaxREMCyclesPerNight]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[IdealHoursSleepPerNight]]></ParameterName>
+				</Parameter>
 			</Parameters>			
 			<PresentationProperties>
 				<EnableZoomAndPanning>true</EnableZoomAndPanning>
@@ -7093,6 +6489,7 @@ checkTestsFunction = root -> {
 				<FinalDate><![CDATA[1590246000000]]></FinalDate>	
 				<FinalTime><![CDATA[15.0]]></FinalTime>	
 			</ModelTimeProperties>
+			<BypassInitialScreen>false</BypassInitialScreen>
 		</SimulationExperiment>
 		<!--   =========   Simulation Experiment   ========  -->
 		<SimulationExperiment ActiveObjectClassId="1590253624667">
@@ -7269,7 +6666,7 @@ checkTestsFunction = root -> {
 				</Variable>
 				<Variable Class="PlainVariable">
 					<Id>1594324367147</Id>
-					<Name><![CDATA[NTNMAffectLoadIncrement]]></Name>
+					<Name><![CDATA[IdiopathicNMAffectLoadIncrement]]></Name>
 					<X>640</X><Y>540</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -7452,7 +6849,7 @@ MaxREMCyclesPerNight = 4;
 MaxHoursSleepPerNight = 8;
 IdealHoursSleepPerNight = 8;
 NormalSleepHour = 22;
-NTNMAffectLoadIncrement = 0.005;
+IdiopathicNMAffectLoadIncrement = 0.005;
 TNMAffectLoadIncrement = 0.01;
 FEAffectLoadDecrement = 0.01;
 
@@ -8004,8 +7401,8 @@ checkTestsFunction = root -> {
 	sb.append(equalsDoubles(root.REMPeriodsHistory, Arrays.asList(4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 0.0, 0.0),
 		"REMPeriodsHistory "));
 	
-	sb.append(equalsDoubles(root.NonTraumNMHistory, Arrays.asList(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0),
-		"NonTraumNMHistory "));
+	sb.append(equalsDoubles(root.IdiopathicNMHistory, Arrays.asList(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0),
+		"IdiopathicTraumNMHistory "));
 		
 	sb.append(equalsDoubles(root.REMDeficitHistory, Arrays.asList(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0),
 		"REMDeficitHistory "));
@@ -8028,7 +7425,7 @@ checkTestsFunction = root -> {
 					</BasicProperties>
 					<ExtendedProperties>
 						<Font Name="Dialog" Size="11" Style="0"/>
-						<LabelText><![CDATA[NonTraum NM Wake first NM, sleep next day]]></LabelText>
+						<LabelText><![CDATA[Idiopathic NM Wake first NM, sleep next day]]></LabelText>
 					</ExtendedProperties>
 				</Control>
 				<Text>
@@ -8137,8 +7534,8 @@ checkTestsFunction = root -> {
 	sb.append(equalsDoubles(root.REMPeriodsHistory, Arrays.asList(4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 0.0, 0.0),
 		"REMPeriodsHistory "));
 	
-	sb.append(equalsDoubles(root.NonTraumNMHistory, Arrays.asList(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0),
-		"NonTraumNMHistory "));
+	sb.append(equalsDoubles(root.IdiopathicNMHistory, Arrays.asList(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0),
+		"IdiopathicTraumNMHistory "));
 		
 	sb.append(equalsDoubles(root.REMDeficitHistory, Arrays.asList(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0),
 		"REMDeficitHistory "));
@@ -8161,7 +7558,7 @@ checkTestsFunction = root -> {
 					</BasicProperties>
 					<ExtendedProperties>
 						<Font Name="Dialog" Size="11" Style="0"/>
-						<LabelText><![CDATA[NonTraum NM Wake first NM, do not sleep next day]]></LabelText>
+						<LabelText><![CDATA[Idiopathic NM Wake first NM, do not sleep next day]]></LabelText>
 					</ExtendedProperties>
 				</Control>
 				<Text>
@@ -8279,21 +7676,9 @@ checkTestsFunction = root -> {
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
-					<ParameterName><![CDATA[MaxREMCyclesPerNight]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[MaxREMCyclesPerNight]]></Code>
-					</ParameterValue>
-				</Parameter>
-				<Parameter>
 					<ParameterName><![CDATA[MaxHoursSleepPerNight]]></ParameterName>
 					<ParameterValue Class="CodeValue">
 						<Code><![CDATA[MaxHoursSleepPerNight]]></Code>
-					</ParameterValue>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[IdealHoursSleepPerNight]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[IdealHoursSleepPerNight]]></Code>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
@@ -8315,9 +7700,9 @@ checkTestsFunction = root -> {
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
-					<ParameterName><![CDATA[NTNMAffectLoadIncrement]]></ParameterName>
+					<ParameterName><![CDATA[IdiopathicNMAffectLoadIncrement]]></ParameterName>
 					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[NTNMAffectLoadIncrement]]></Code>
+						<Code><![CDATA[IdiopathicNMAffectLoadIncrement]]></Code>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
@@ -8338,6 +7723,12 @@ checkTestsFunction = root -> {
 				<Parameter>
 					<ParameterName><![CDATA[ExperimentId]]></ParameterName>
 				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[MaxREMCyclesPerNight]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[IdealHoursSleepPerNight]]></ParameterName>
+				</Parameter>
 			</Parameters>			
 			<PresentationProperties>
 				<EnableZoomAndPanning>true</EnableZoomAndPanning>
@@ -8354,6 +7745,7 @@ checkTestsFunction = root -> {
 				<FinalDate><![CDATA[1590300000000]]></FinalDate>	
 				<FinalTime><![CDATA[30.0]]></FinalTime>	
 			</ModelTimeProperties>
+			<BypassInitialScreen>false</BypassInitialScreen>
 		</SimulationExperiment>
 		<!--   =========   Simulation Experiment   ========  -->
 		<SimulationExperiment ActiveObjectClassId="1590253624667">
@@ -8530,7 +7922,7 @@ checkTestsFunction = root -> {
 				</Variable>
 				<Variable Class="PlainVariable">
 					<Id>1594327371259</Id>
-					<Name><![CDATA[NTNMAffectLoadIncrement]]></Name>
+					<Name><![CDATA[IdiopathicNMAffectLoadIncrement]]></Name>
 					<X>640</X><Y>540</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -8713,7 +8105,7 @@ MaxREMCyclesPerNight = 4;
 MaxHoursSleepPerNight = 8;
 IdealHoursSleepPerNight = 8;
 NormalSleepHour = 22;
-NTNMAffectLoadIncrement = 0.005;
+IdiopathicNMAffectLoadIncrement = 0.005;
 TNMAffectLoadIncrement = 0.01;
 FEAffectLoadDecrement = 0.01;
 
@@ -9433,8 +8825,8 @@ checkTestsFunction = root -> {
 	sb.append(equalsDoubles(root.REMPeriodsHistory, Arrays.asList(4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0),
 		"REMPeriodsHistory "));
 	
-	sb.append(equalsDoubles(root.NonTraumNMHistory, Arrays.asList(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0),
-		"NonTraumNMHistory "));
+	sb.append(equalsDoubles(root.IdiopathicNMHistory, Arrays.asList(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0),
+		"IdiopathicNMHistory "));
 		
 	sb.append(equalsDoubles(root.REMDeficitHistory, Arrays.asList(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0),
 		"REMDeficitHistory "));
@@ -9460,7 +8852,7 @@ checkTestsFunction = root -> {
 					</BasicProperties>
 					<ExtendedProperties>
 						<Font Name="Dialog" Size="11" Style="0"/>
-						<LabelText><![CDATA[NonTraum NM Causes avoid sleep until giving into pressure]]></LabelText>
+						<LabelText><![CDATA[Idiopathic NM Causes avoid sleep until giving into pressure]]></LabelText>
 					</ExtendedProperties>
 				</Control>
 				<Text>
@@ -9580,18 +8972,9 @@ they avoid sleep again.]]></Text>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
-					<ParameterName><![CDATA[MaxREMCyclesPerNight]]></ParameterName>
-				</Parameter>
-				<Parameter>
 					<ParameterName><![CDATA[MaxHoursSleepPerNight]]></ParameterName>
 					<ParameterValue Class="CodeValue">
 						<Code><![CDATA[MaxHoursSleepPerNight]]></Code>
-					</ParameterValue>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[IdealHoursSleepPerNight]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[IdealHoursSleepPerNight]]></Code>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
@@ -9613,9 +8996,9 @@ they avoid sleep again.]]></Text>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
-					<ParameterName><![CDATA[NTNMAffectLoadIncrement]]></ParameterName>
+					<ParameterName><![CDATA[IdiopathicNMAffectLoadIncrement]]></ParameterName>
 					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[NTNMAffectLoadIncrement]]></Code>
+						<Code><![CDATA[IdiopathicNMAffectLoadIncrement]]></Code>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
@@ -9636,6 +9019,12 @@ they avoid sleep again.]]></Text>
 				<Parameter>
 					<ParameterName><![CDATA[ExperimentId]]></ParameterName>
 				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[MaxREMCyclesPerNight]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[IdealHoursSleepPerNight]]></ParameterName>
+				</Parameter>
 			</Parameters>			
 			<PresentationProperties>
 				<EnableZoomAndPanning>true</EnableZoomAndPanning>
@@ -9652,6 +9041,142 @@ they avoid sleep again.]]></Text>
 				<FinalDate><![CDATA[1590768000000]]></FinalDate>	
 				<FinalTime><![CDATA[160.0]]></FinalTime>	
 			</ModelTimeProperties>
+			<BypassInitialScreen>false</BypassInitialScreen>
+		</SimulationExperiment>
+		<!--   =========   Simulation Experiment   ========  -->
+		<SimulationExperiment ActiveObjectClassId="1590253624667">
+			<Id>1622579048467</Id>
+			<Name><![CDATA[Simulation]]></Name>
+			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
+			<CommandLineArguments><![CDATA[]]></CommandLineArguments>
+			<MaximumMemory>512</MaximumMemory>
+			<RandomNumberGenerationType>fixedSeed</RandomNumberGenerationType>
+			<CustomGeneratorCode>new Random()</CustomGeneratorCode>
+			<SeedValue>1</SeedValue>
+			<SelectionModeForSimultaneousEvents>LIFO</SelectionModeForSimultaneousEvents>
+			<VmArgs><![CDATA[]]></VmArgs>
+			<LoadRootFromSnapshot>false</LoadRootFromSnapshot>
+
+			<Presentation>
+				<Text>
+					<Id>0</Id>
+					<Name><![CDATA[text]]></Name>
+					<X>50</X><Y>30</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-12490271</Color>
+					<Text><![CDATA[Disturbed Dreaming Model]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>24</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+			</Presentation>
+
+			<Parameters>			
+				<Parameter>
+					<ParameterName><![CDATA[AffectDistressTendency]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[TraumaHistory]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[FearExtinctionFailureThreshold]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[ImageValence]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[ImageArousal]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[ImageDominance]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[InitialAffectLoad]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[TreatmentDegreeOfControl]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[TreatmentImagesSimilarToNM]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[AdrenalineAntagonists]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[TreatmentFrequency]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[TreatmentType]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[ImageStabilizationCapacity]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[FearExtinctionAttemptThreshold]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[DandRFailureThreshold]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[MaxHoursSleepPerNight]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[FEAffectLoadDecrement]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[PostNightmareSleepThreshold]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[NormalSleepHour]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[IdiopathicNMAffectLoadIncrement]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[TNMAffectLoadIncrement]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[Lucidity]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[TimeInState]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[ExperimentId]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[MaxREMCyclesPerNight]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[IdealHoursSleepPerNight]]></ParameterName>
+				</Parameter>
+			</Parameters>			
+			<PresentationProperties>
+				<EnableZoomAndPanning>true</EnableZoomAndPanning>
+				<ExecutionMode><![CDATA[realTimeScaled]]></ExecutionMode>
+				<Title><![CDATA[Disturbed Dreaming Model : Simulation]]></Title>	
+				<EnableDeveloperPanel>true</EnableDeveloperPanel>
+				<ShowDeveloperPanelOnStart>false</ShowDeveloperPanelOnStart>
+				<RealTimeScale>1.0</RealTimeScale>
+			</PresentationProperties>
+			<ModelTimeProperties>
+				<StopOption><![CDATA[Never]]></StopOption>
+				<InitialDate><![CDATA[1622505600000]]></InitialDate>	
+				<InitialTime><![CDATA[0.0]]></InitialTime>	
+				<FinalDate><![CDATA[1625097600000]]></FinalDate>	
+				<FinalTime><![CDATA[100.0]]></FinalTime>	
+			</ModelTimeProperties>
+			<BypassInitialScreen>true</BypassInitialScreen>
 		</SimulationExperiment>
 		<!--   =========  Parameter Variation Experiment   ========  -->
 		<ParamVariationExperiment ActiveObjectClassId="1590253624667">
@@ -9750,7 +9275,7 @@ sb.append("IdealHoursSleepPerNight");
 sb.append(',');
 sb.append("NormalSleepHour");
 sb.append(',');
-sb.append("NTNMAffectLoadIncrement");
+sb.append("NTNMAffectLoadIncrement"); // NT = Idiopathic
 sb.append(',');
 sb.append("TNMAffectLoadIncrement");
 sb.append(',');
@@ -9801,7 +9326,7 @@ sb.append("ExperimentId");
 sb.append(',');
 sb.append("Night");
 sb.append(',');
-sb.append("NonTraumNM");
+sb.append("NonTraumNM"); // Previous version used NonTraum instead of Idiopathic
 sb.append(',');
 sb.append("TraumNM");
 sb.append(',');
@@ -10193,5 +9718,11 @@ public class TestResult implements Serializable {
 			<ReferencedFromUserCode>false</ReferencedFromUserCode>
 		</Resource>
 	</ModelResources>
+    <RequiredLibraryReference>
+		<LibraryName><![CDATA[com.anylogic.libraries.modules.markup_descriptors]]></LibraryName>
+		<VersionMajor>1</VersionMajor>
+		<VersionMinor>0</VersionMinor>
+		<VersionBuild>0</VersionBuild>
+    </RequiredLibraryReference>
 </Model>
 </AnyLogicWorkspace>
