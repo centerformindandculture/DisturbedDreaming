@@ -13,7 +13,7 @@ The free personal learning edition of AnyLogic can be installed at https://www.a
 Open the .alp file in AnyLogic. The model is contained by the Main agent.
 
 ## Running the model
-We would recommend running one of the Tests_* experiments in order to run the model under variaous test circumstances.
+We would recommend running one of the Tests_* experiments in order to run the model under various test circumstances.
 Instructions with image for how to do this are in the word document in the repo.
 Instructions without pictures are below.
 
