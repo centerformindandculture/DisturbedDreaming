@@ -4,6 +4,9 @@ The Disturbed Dreaming Model (DDM) implements Nielsen & Levin's Affect Network D
 * Levin, Ross, and Tore A. Nielsen. “Disturbed Dreaming, Posttraumatic Stress Disorder, and Affect Distress: A Review and Neurocognitive Model.” Psychological Bulletin 133, no. 3 (May 2007): 482–528. https://doi.org/10.1037/0033-2909.133.3.482.
 * Nielsen, Tore, and Ross Levin. “Nightmares: A New Neurocognitive Model.” Sleep Medicine Reviews 11, no. 4 (August 1, 2007): 295–310. https://doi.org/10.1016/j.smrv.2007.03.004.
 
+This model's publications include
+* Patrick McNamara, Wesley J Wildman, George Hodulik, David Rohr, A neurocomputational theory of nightmares: the role of formal properties of nightmare images, SLEEP Advances, Volume 2, Issue 1, 2021, zpab009, https://doi.org/10.1093/sleepadvances/zpab009
+
 # Using the model
 
 ## Installing AnyLogic
